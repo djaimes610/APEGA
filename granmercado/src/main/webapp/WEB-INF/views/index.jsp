@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" pageEncoding="utf8" contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!-- saved from url=(0052)http://www.perfectview.com.pe/ipnet/plusg/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,11 +52,11 @@
         <div class="container relat" id="font00">
             <ul class="menu-top pull-left">
                 <li><a class="active" href="index.html">Inicio </a></li>
-				|
+				
                 <li><a href="nosotros.html">Nosotros </a></li>
-				|
+				
                 <li><a href="multimedia.html">Multimedia </a></li>
-				|
+				
                 <li><a href="contactenos.html">Contáctenos</a></li>
             </ul>
             
@@ -177,17 +178,35 @@
         </div>
         
         <div class="contCuerpo">
-        	<!-- Area Blanco-->
-            <div class="contWhite">
+      
+       <c:if test="${not empty lstProductos}">
+
+		
+			<c:forEach var="producto" items="${lstProductos}" varStatus="loop">
+				
+				
+				 <c:choose>
+				   <c:when test="${loop.index%2==0}">
+				     <div class="contWhite">
+				   </c:when>
+				   <c:otherwise>
+				   <div class="contGray">
+				   </c:otherwise>
+				 
+				 </c:choose>
+				
+				
+				
+				
                 <div class="col-md-3 sPad">
                     <figure class="sMar">
                         <a href="#"><img class="img-responsive" src="${Img}/producto_aji_01.jpg"/></a>
                     </figure>
                 </div>
                 <div class="col-md-7">
-                    <h2 class="font06">Ají</h2>
+                    <h2 class="font06">${producto.nomProducto}</h2>
                     <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
+                    ${producto.descProducto}
                     </p>
                     <a href="#">> MAS INFORMACIÓN</a>
                     
@@ -200,182 +219,212 @@
                     
                 </div>
             </div>
-            <!-- Area Blanco-->
+			</c:forEach>
+		
+
+	</c:if>
+        
+        
+        
+<!--         	Area Blanco -->
+<!--             <div class="contWhite"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_aji_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Ají</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
+                    
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
+                    
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Area Blanco -->
             
-            <!-- Area Gris-->
-            <div class="contGray">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_chirimoya_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Chirimoya</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--             Area Gris -->
+<!--             <div class="contGray"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_chirimoya_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Chirimoya</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Fin Area Gris-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Fin Area Gris -->
             
-            <!-- Area Blanco-->
-            <div class="contWhite">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_lucuma_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Lúcuma</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--             Area Blanco -->
+<!--             <div class="contWhite"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_lucuma_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Lúcuma</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Area Blanco-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Area Blanco -->
             
-            <!-- Area Gris-->
-            <div class="contGray">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_olluco_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Olluco</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--             Area Gris -->
+<!--             <div class="contGray"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_olluco_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Olluco</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Fin Area Gris-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Fin Area Gris -->
             
-           <!-- Area Blanco-->
-            <div class="contWhite">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_papa_nativa_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Papa Nativa</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--            Area Blanco -->
+<!--             <div class="contWhite"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_papa_nativa_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Papa Nativa</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Area Blanco-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Area Blanco -->
             
-            <!-- Area Gris-->
-            <div class="contGray">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_pina_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Piña</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--             Area Gris -->
+<!--             <div class="contGray"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_pina_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Piña</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Fin Area Gris-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Fin Area Gris -->
             
-            <!-- Area Blanco-->
-            <div class="contWhite">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_quinua_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Quinua</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--             Area Blanco -->
+<!--             <div class="contWhite"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_quinua_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Quinua</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Area Blanco-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Area Blanco -->
             
-            <!-- Area Gris-->
-            <div class="contGray">
-                <div class="col-md-3 sPad">
-                    <figure class="sMar">
-                        <a href="#"><img class="img-responsive" src="${Img}/producto_tomate_01.jpg"/></a>
-                    </figure>
-                </div>
-                <div class="col-md-7">
-                    <h2 class="font06">Tomate</h2>
-                    <p>
-                    Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
-                    </p>
-                    <a href="#">> MAS INFORMACIÓN</a>
+<!--             Area Gris -->
+<!--             <div class="contGray"> -->
+<!--                 <div class="col-md-3 sPad"> -->
+<!--                     <figure class="sMar"> -->
+<%--                         <a href="#"><img class="img-responsive" src="${Img}/producto_tomate_01.jpg"/></a> --%>
+<!--                     </figure> -->
+<!--                 </div> -->
+<!--                 <div class="col-md-7"> -->
+<!--                     <h2 class="font06">Tomate</h2> -->
+<!--                     <p> -->
+<!--                     Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,  -->
+<!--                     </p> -->
+<!--                     <a href="#">> MAS INFORMACIÓN</a> -->
                     
-                </div>
-                <div class="col-md-2">
-                    <div class="contEnlace">
-                        <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a>
-                        <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a>
-                    </div>
+<!--                 </div> -->
+<!--                 <div class="col-md-2"> -->
+<!--                     <div class="contEnlace"> -->
+<%--                         <a href="#">COMPRAR <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<%--                         <a href="#">VENDER <img src="${Img}/flecha_02.png" width="25"/></a> --%>
+<!--                     </div> -->
                     
-                </div>
-            </div>
-            <!-- Fin Area Gris-->
+<!--                 </div> -->
+<!--             </div> -->
+<!--             Fin Area Gris -->
             
         </div>
     </div>
