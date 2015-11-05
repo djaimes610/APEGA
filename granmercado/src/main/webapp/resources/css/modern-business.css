@@ -140,17 +140,20 @@ nav .menu-top li a:hover {
 }
 .contInterno,
 .contProy {
-  margin-top: 150px;
+	margin-top: 200px;
 }
 .bgTitle {
   background-color: #fcf910;
   overflow: auto;
 }
 .bgTitle h2 {
-  font-family: 'Exo', sans-serif;
-  font-weight: bold;
-  margin: 0;
-  padding: 5px;
+	font-family: 'Exo', sans-serif;
+	font-weight: bold;
+	margin: 0;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
 }
 .bgTitle h2.pad {
   padding: 25px;
@@ -184,9 +187,12 @@ ul li i {
 	margin-bottom: 15px;
 }
 .contCuerpo {
-  background-color: #3b3b3b;
-  padding: 15px 10px;
-  overflow: auto;
+	background-color: #3b3b3b;
+	padding-top: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	overflow: auto;
 }
 .contCuerpo .contGrey {
   background-color: #4d4d4d;
@@ -202,10 +208,23 @@ ul li i {
   overflow: auto;
   padding-bottom: 6px;
 }
-.contCuerpo .contGray {
-  background-color: #e8e8e8;
+
+.contCuerpo .contDarkGray {
+  background-color: #ccc;
   overflow: auto;
   padding-bottom: 6px;
+}
+
+.contCuerpo .contDarkGray1 {
+	background-color: #A4A4A4;
+	overflow: auto;
+	padding-bottom: 6px;
+}
+
+.contCuerpo .contGray {
+	background-color: #DCDCDC;
+	overflow: auto;
+	padding-bottom: 6px;
 }
 .contCuerpo .colTab {
   width: 600px;
@@ -238,7 +257,7 @@ ul li i {
 	margin-top: 56px;
 }
 .contEnlace {
-	margin-top: 60px;
+	margin-top: 50px;
 	margin-right: 0;
 	margin-left: 0;
 	margin-bottom: 0;
@@ -263,8 +282,11 @@ ul li i {
   background-color: #000;
 }
 .contInf {
-  padding: 15px 10px;
-  overflow: auto;
+	padding-top: 25px;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 25px;
+	overflow: auto;
 }
 .contInf .contAz {
 	background-color: #fcf910;

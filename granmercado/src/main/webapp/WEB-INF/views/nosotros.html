@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)http://www.perfectview.com.pe/ipnet/plusg/index.html -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta charset="utf-8">
@@ -33,8 +33,74 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="css/css" rel="stylesheet" type="text/css">
-</head>
+    
+ <style>
+ #popup {
+	left: 0;
+    position: absolute;
+    top: 000;
+    width: 100%;
+    z-index: 1001;
+}
 
+#popup2 {
+	left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+
+.content-popup {
+margin:0px auto;
+margin-top:170px;
+padding:10px;
+width:500px;
+min-height:250px;
+border-radius:4px;
+background-color:#FFFFFF;
+box-shadow: 0 2px 5px #666666;
+}
+
+.close {
+position:relative;
+left:480px;
+}
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#open').click(function(){
+		$('#popup').fadeIn('slow');
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	
+	$('#close').click(function(){
+		$('#popup').fadeOut('slow');
+		//$('body').css('opacity', '1');
+		return false;
+	});
+	
+	$('#open2').click(function(){
+		$('#popup2').fadeIn('slow');
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	
+	$('#close2').click(function(){
+		$('#popup2').fadeOut('slow');
+		//$('body').css('opacity', '1');
+		return false;
+	});
+});
+</script>   
+
+<!--Colocar entre <head> y </head> -->
+<link rel="stylesheet" href="css/base.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+</script>
+</head>
 
 <body>
     <nav class="container-fluid" style="background-color:#da007f; height:30px; position:fixed; width:100%; z-index:1050;">
@@ -43,9 +109,7 @@
             <ul class="menu-top pull-left">
                 <li><a href="index.html">Inicio </a></li>
 				|
-                <li><a class="active" href="nosotros.html">Nosotros </a></li>
-				|
-                <li><a href="multimedia.html">Multimedia </a></li>
+                <li><a class="active"  href="nosotros.html">Nosotros </a></li>
 				|
                 <li><a href="contactenos.html">Contáctenos</a></li>
             </ul>
@@ -53,14 +117,14 @@
 		<div class="pull-right absolut">
               <ul class="list-unstyled list-inline list-social-icons">
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_fb.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_fb.png" width="24"/></a>
                   </li>
 
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_tw.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_tw.png" width="24"/></a>
                   </li>
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_yt.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_yt.png" width="24"/></a>
                   </li>
               </ul>
             </div>
@@ -69,7 +133,7 @@
     
     <!-- Navigation -->
     <nav class="navbar nav-plusg navbar-fixed-top" role="navigation">
-        <div class="container"  id="font01">
+        <div class="container" id="font01">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header" style="margin-top:30px;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -84,24 +148,19 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="quiero_comprar.html">Quiero<br>Comprar</a>
-                    </li>
-                    <li>
-                        <a href="quiero_vender.html">Quiero<br>Vender</a>
+                        <a href="quiero_comprar.html">Productos<br>Ofrecidos</a>
                     </li>
                     <li>
                         <a href="productos.html">Pizarra de<br>Productos</a>
                     </li>
                     <li>
-                        <a href="#">Productos<br>de Estación</a>
+                        <a class="active"  href="sube_tu_oferta.html"><span style="color: rgba(218,0,127,1.00); background-color: rgba(255,255,255,1.00);">&nbsp;&nbsp; Sube tu &nbsp;&nbsp;<br>&nbsp;&nbsp; Oferta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     </li>
                     <li>
-                        <a href="#">Infórmate</a>
+                    <div class="pull-right  navbar-header">
+                    <img src="img/Mistura_Apega_LOGO.png" width="80">
+                    </div>
                     </li>
-                    <li>
-                        <a href="#">Los<br>Campeones</a>
-                    </li>
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -109,29 +168,19 @@
         <!-- /.container -->
     </nav>
     
-    
     <header>
         <div class="">
             <div class="container sPad">
-                <div class="col-md-8 sPad">
-                    <figure class="sMar">
-                        <img src="img/granmercado.jpg" alt="" class="img-responsive">
-                    </figure>
+                <div class="col-md-12 sPad">
+                    <!--<figure class="sMar">-->
+                    <div class="item">
+                        <img src="img/nosotros.jpg" alt="" class="img-responsive">
+                    </div>
+                    <!--</figure>-->
                     <div class="bgTitle margLef">
-                        <h2 class="pad">¿QUÉ ES<br>EL GRAN MERCADO?</h2>
+                        <h2 class="pad">NOSOTROS</h2>
                     </div>                  
                 </div>
-                <div class="col-md-4 contProy">
-                    <div class="thumbnail">
-                        <iframe width="100%" height="240" src="./nosotros_files/9iAH-fGulss.html" frameborder="0" allowfullscreen=""></iframe>
-                    </div>
-                    <div>
-                        <ul>                        
-                            <li><a class="font05" href="#acerca">> ¿Qué es el Gran Mercado Mistura?</a></li>
-                            <li><a class="font05" href="#historia">> Historia / Antecedentes</a></li>
-
-                        </ul>
-                    </div>
                     
                 </div>
             </div>
@@ -168,51 +217,83 @@
     </div>
 
 
-    <footer>
+<footer>
         <hr>
         <div class="row">
-            <div class="col-md-2">
-                <figure>
+            <div class="col-md-3">
+            		<figure>
                     <img src="img/Gran_Mercardo_LOGO_1.png" alt="" class="img-responsive">
-                </figure>
-                
+                    </figure>
             </div>
-            <div class="col-md-offset-2 col-md-4">
-                <p class="font05 pull-right">
-                    Oficina Central APEGA<br>
-                    <span>TEL： 51 (1) 211.1111</span>
-                </p>
+            
+            <div class="col-md-3">
             </div>
-            <div class="col-md-4">
-                <p class="font05">
-                    Escríbenos a<br>
-                    <span><a href="mailto:apega@apega.pe">apega@apega.pe</a></span>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-6"></div>
+            
             <div class="col-md-3">
                 <ul>
+                	<p class="font05">
+                    <br>
+                    Oficina Central APEGA<br>
+                    TEL： 51 (1) 461.2221
+                    </p>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="">
+                <p class="font05">
+                	<br>
+                    Escríbenos a<br>
+                    <span><a href="mailto:apega@apega.pe">apega@apega.pe</a></span>
+                 </p>   
+                </ul>
+            </div>
+        </div>
+        
+        
+        <hr>
+        
+        
+        <div class="row">
+            <div class="col-md-6">
+            		<ul>
+                    <li>Con el apoyo de:</li>
+                    </ul>
+                    
+                    <div class="col-md-12">
+                            <div class="col-md-4" sPad>
+                            <img src="img/bid.png" alt=""  class="img-responsive">
+                            </div>
+                            <div class="col-md-4" sPad>
+                            <img src="img/fomin.png" alt=""  class="img-responsive">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                    </div>
+            </div>
+            
+            <div class="col-md-3">
+                <ul>
+                	<br>
                     <li><a class="font05" href="">> Qué es El Gran Mercado?</a></li>                        
                     <li><a class="font05" href="">> Quiero comprar </a></li>
                     <li><a class="font05" href="">> Quiero vender </a></li>
                     <li><a class="font05" href="">> Pizarra de Productos </a></li>
                     <li><a class="font05" href="">> Productos de Estación </a></li>
-                    <li><a class="font05" href="">> Infórmate </a></li>
-                    <li><a class="font05" href="">> Los Campeones</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <ul class="">
+                	<br>
                     <li><a href="" class="font05">> Contáctanos</a></li>
                     <li><a href="" class="font05">> Política de Privacidad</a></li>
                     <li><a href="" class="font05">> FAQ</a></li>
                 </ul>
             </div>
         </div>
+
+
         <hr>
+        
         <div class="row">
             <div class="col-md-2">
                 <p>© 2015 Gran Mercado.</p>
@@ -221,16 +302,18 @@
                 <p><a href="http://www.plusgstudio.com" target="_blank">Diseñado por PlusG</a></p>
             </div>
         </div>
-    </footer>
+</footer>
+
+
 
 </div>
-    <!-- /.container -->
+
 
     <!-- jQuery -->
-    <script src="./index_files/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="./index_files/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>
@@ -241,5 +324,5 @@
 
 
 
-
+<script src="http://www.phpres.net/js/base.js"></script>
 </body></html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)http://www.perfectview.com.pe/ipnet/plusg/index.html -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta charset="utf-8">
@@ -34,248 +34,71 @@
     <![endif]-->
     <link href="css/css" rel="stylesheet" type="text/css">
     
-    
-<script type='text/javascript' src='js/jquery.min.js'></script>
-<script type='text/javascript' src='js/jquery.mobile.customized.min.js'></script>
-<script type='text/javascript' src='js/jquery.easing.1.3.js'></script> 
-<script type='text/javascript' src='js/camera.min.js'></script> 
-    
-    <script>
-		jQuery(function(){
-			
-			jQuery('#camera_wrap_1').camera({
-				height: '550px',
-				pagination: false,
-				thumbnails: false,
-				hover: false,
-				opacityOnGrid: false,
-				imagePath: '../images/'
-			});
+ <style>
+ #popup {
+	left: 0;
+    position: absolute;
+    top: 000;
+    width: 100%;
+    z-index: 1001;
+}
 
-			jQuery('#camera_wrap_2').camera({
-				width: '´1400px',
-				height: '500px',
-				loader: 'bar',
-				pagination: true,
-				thumbnails: false
-			});
-		});
-	</script>
-    
-    
-    
-<script type="text/javascript" src="lib/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+#popup2 {
+	left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
 
-<!-- Add mousewheel plugin (this is optional) -->
-	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
-<!-- Add fancyBox main JS and CSS files -->
-<script type="text/javascript" src="source/jquery.fancybox.js?v=2.0.6"></script>
-<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.0.6" media="screen" />    
+.content-popup {
+margin:0px auto;
+margin-top:170px;
+padding:10px;
+width:500px;
+min-height:250px;
+border-radius:4px;
+background-color:#FFFFFF;
+box-shadow: 0 2px 5px #666666;
+}
 
-<!-- Add Button helper (this is optional) -->
-	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.2" />
-	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.2"></script>
-<!-- Add Thumbnail helper (this is optional) -->
-	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-thumbs.css?v=1.0.2" />
-	<script type="text/javascript" src="source/helpers/jquery.fancybox-thumbs.js?v=1.0.2"></script>
-<!-- Add Media helper (this is optional) -->
-	<script type="text/javascript" src="source/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
-
+.close {
+position:relative;
+left:480px;
+}
+</style>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-		$(document).ready(function() {
-			/*
-			 *  Simple image gallery. Uses default settings
-			 */
+$(document).ready(function(){
+  $('#open').click(function(){
+		$('#popup').fadeIn('slow');
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	
+	$('#close').click(function(){
+		$('#popup').fadeOut('slow');
+		//$('body').css('opacity', '1');
+		return false;
+	});
+	
+	$('#open2').click(function(){
+		$('#popup2').fadeIn('slow');
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	
+	$('#close2').click(function(){
+		$('#popup2').fadeOut('slow');
+		//$('body').css('opacity', '1');
+		return false;
+	});
+});
+</script>   
 
-			$('.fancybox').fancybox();
-
-			/*
-			 *  Different effects
-			 */
-
-			// Change title type, overlay opening speed and opacity
-			$(".fancybox-effects-a").fancybox({
-				helpers: {
-					title : {
-						type : 'outside'
-					},
-					overlay : {
-						speedIn : 500,
-						opacity : 0.95
-					}
-				}
-			});
-
-			// Disable opening and closing animations, change title type
-			$(".fancybox-effects-b").fancybox({
-				openEffect  : 'none',
-				closeEffect	: 'none',
-
-				helpers : {
-					title : {
-						type : 'over'
-					}
-				}
-			});
-
-			// Set custom style, close if clicked, change title type and overlay color
-			$(".fancybox-effects-c").fancybox({
-				wrapCSS    : 'fancybox-custom',
-				closeClick : true,
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					overlay : {
-						css : {
-							'background-color' : '#eee'
-						}
-					}
-				}
-			});
-
-			// Remove padding, set opening and closing animations, close if clicked and disable overlay
-			$(".fancybox-effects-d").fancybox({
-				padding: 0,
-
-				openEffect : 'elastic',
-				openSpeed  : 150,
-
-				closeEffect : 'elastic',
-				closeSpeed  : 150,
-
-				closeClick : true,
-
-				helpers : {
-					overlay : null
-				}
-			});
-
-			/*
-			 *  Button helper. Disable animations, hide close button, change title type and content
-			 */
-
-			$('.fancybox-buttons').fancybox({
-				openEffect  : 'none',
-				closeEffect : 'none',
-
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-
-				closeBtn  : false,
-
-				helpers : {
-					title : {
-						type : 'inside'
-					},
-					buttons	: {}
-				},
-
-				afterLoad : function() {
-					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}
-			});
-
-
-			/*
-			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-			 */
-
-			$('.fancybox-thumbs').fancybox({
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : false,
-				arrows    : false,
-				nextClick : true,
-
-				helpers : {
-					thumbs : {
-						width  : 50,
-						height : 50
-					}
-				}
-			});
-
-			/*
-			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-			*/
-			$('.fancybox-media')
-				.attr('rel', 'media-gallery')
-				.fancybox({
-					openEffect : 'none',
-					closeEffect : 'none',
-					prevEffect : 'none',
-					nextEffect : 'none',
-
-					arrows : false,
-					helpers : {
-						media : {},
-						buttons : {}
-					}
-				});
-
-			/*
-			 *  Open manually
-			 */
-
-			$("#fancybox-manual-a").click(function() {
-				$.fancybox.open('1_b.jpg');
-			});
-
-			$("#fancybox-manual-b").click(function() {
-				$.fancybox.open({
-					href : 'iframe.html',
-					type : 'iframe',
-					padding : 5
-				});
-			});
-
-			$("#fancybox-manual-c").click(function() {
-				$.fancybox.open([
-					{
-						href : 'img/000.jpg',
-						title : 'Primero'
-					}, {
-						href : 'img/100.jpg',
-						title : 'Segundo'
-					}, {
-						href : 'img/200.jpg',
-						title : 'Tercero'
-					}, {
-						href : 'img/300.jpg',
-						title : 'Cuarto'
-					}
-				], {
-					helpers : {
-						thumbs : {
-							width: 75,
-							height: 50
-						}
-					}
-				});
-			});
-
-
-		});
-	</script>
-    
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38363522-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
+<!--Colocar entre <head> y </head> -->
+<link rel="stylesheet" href="css/base.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
 </script>
 </head>
 
@@ -288,22 +111,20 @@
 				|
                 <li><a href="nosotros.html">Nosotros </a></li>
 				|
-                <li><a href="multimedia.html">Multimedia </a></li>
-				|
                 <li><a href="contactenos.html">Contáctenos</a></li>
             </ul>
             
 		<div class="pull-right absolut">
               <ul class="list-unstyled list-inline list-social-icons">
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_fb.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_fb.png" width="24"/></a>
                   </li>
 
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_tw.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_tw.png" width="24"/></a>
                   </li>
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_yt.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_yt.png" width="24"/></a>
                   </li>
               </ul>
             </div>
@@ -327,24 +148,19 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="quiero_comprar.html">Quiero<br>Comprar</a>
-                    </li>
-                    <li>
-                        <a href="quiero_vender.html">Quiero<br>Vender</a>
+                        <a href="quiero_comprar.html"><span style="color:rgba(255,237,0,1.00);">Productos<br>Ofrecidos</span></a>
                     </li>
                     <li>
                         <a href="productos.html">Pizarra de<br>Productos</a>
                     </li>
                     <li>
-                        <a href="#">Productos<br>de Estación</a>
+                        <a href="sube_tu_oferta.html"><span style="color: rgba(218,0,127,1.00); background-color: rgba(255,255,255,1.00);">&nbsp;&nbsp; Sube tu &nbsp;&nbsp;<br>&nbsp;&nbsp; Oferta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     </li>
                     <li>
-                        <a href="#">Infórmate</a>
+                    <div class="pull-right  navbar-header">
+                    <img src="img/Mistura_Apega_LOGO.png" width="80">
+                    </div>
                     </li>
-                    <li>
-                        <a href="#">Los<br>Campeones</a>
-                    </li>
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -358,102 +174,220 @@
 
     <div class="row contInterno">
         <div class="col-lg-4 bgTitle">
-          <h2>QUIERO<br>COMPRAR</h2>
+          <h2>PRODUCTOS<br>OFRECIDOS</h2>
         </div>
         <div class="col-lg-8 sPad">
             <h2 class="headTit">Ofertas</h2>
         </div>
         <div class="contCuerpo">
             <div class="contGrey">
-                  <div class="col-lg-offset-8 col-lg-2 subt">Vigencia de oferta</div>
-                <div class="col-lg-2 subt">Número de visitas</div>
+                  
             </div>
             <div class="contWhite">
+            	<div class="col-md-3 sPad">
+                    <figure class="sMar">
+                    <img class="img-responsive" src="img/producto_aji_01.jpg"/>
+                    </figure>
+                </div>
+                
                 <div class="col-md-6">
-                    <h3>Naranja Valencia. 25/08/2015</h3>
+                	<h2>Aji Rocoto de Chinchao.</h2>
                     <p>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 
+                    Voumen de oferta: 50 Kg x semana<br>
+                    Calidad: Extra y primera.<br>
+                    Lugar de Producción: Huanacaure, distrito de Chinchao (Huánuco).<br>
+                    Precio: S/.3.20 x Kg<br>
+                    Lugar de entrega: Lima
+                    
+                <!-- MODAL 1-->                    
+                <div class="modal" id="modal1">
+                    <div class="flotante" id="modal1">
+                        <div class="flotante-encabezado">
+                        <span class="flotante-cerrar" id="modal1">&times;</span>
+                        <h2 class="font06">Negocios Rurales Los Triunfadores de Huanacaure</h2>
+                        </div>
+                
+                        <div class="flotante-contenido">
+                                <!---------------------->
+                                <div class="col-md-6">
+                                		<h3>Productor:</h3>
+                                        <h2>Filomeno Usuriaga Pillpe.</h2> 
+                                        <h3>Procedencia:</h3>
+                                        <h2>Chinchao (Huánuco).</h2>
+                                        <p>
+                                        Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito, 
+                                        </p>    
+                                </div>
+                                <!---------------------->
+                                
+                                <!---------------------->
+                                <div class="col-md-6">
+                                        <figure class="sMar">
+                                        <img class="img-responsive" src="img/producto_lucuma_04.jpg"/>
+                                        </figure>
+                                        <br>
+                                </div>
+                                <!---------------------->
+                        </div>
+                        
+                        <!--
+                        <div class="flotante-pie">
+                        <a class="boton boton-rojo" onclick="modal('modal1');">Cerrar</a>
+                        </div>
+                        -->
+                    </div>
+                <div class="fondo-transparente" id="modal1"></div>
+                </div>
+                <!-- MODAL 1-->
+                
+                
+                
+                
+                <!-- MODAL 2-->                    
+                <div class="modal" id="modal2">
+                    <div class="flotante" id="modal2">
+                        <div class="flotante-encabezado">
+                        <span class="flotante-cerrar" id="modal2">&times;</span>
+                        <h2 class="font06">Contactar con el proveedor</h2>
+                        </div>
+                
+                        <div class="flotante-contenido">
+                        <!---------------------->
+                        <div class="col-md-12">
+                                <!--<h3>Escriba su mensaje</h3>-->
+                                <form name="sentMessage" id="contactForm" novalidate>
+                                    <div class="control-group form-group">
+                                        <div class="controls">
+                                            <label>Nombre del interesado (empresa o persona natural):</label>
+                                            <input type="text" class="form-control" id="name" required="" data-validation-required-message="Please enter your name.">
+                                            <p class="help-block"></p>
+                                        </div>
+                                    </div>
+                                    <div class="control-group form-group">
+                                        <div class="controls">
+                                            <label>Teléfono:</label>
+                                            <input type="tel" class="form-control" id="phone" required="" data-validation-required-message="Please enter your phone number.">
+                                        </div>
+                                    </div>
+                                    <div class="control-group form-group">
+                                        <div class="controls">
+                                            <label>Email:</label>
+                                            <input type="email" class="form-control" id="email" required="" data-validation-required-message="Please enter your email address.">
+                                        </div>
+                                    </div>
+                                    <div class="control-group form-group">
+                                        <div class="controls">
+                                            <label>Mensaje:</label>
+                                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                                        </div>
+                                    </div>
+                                    <div id="success"></div>
+                                    <!-- For success/fail messages -->
+                                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                                </form>
+                            </div>
+                        <!---------------------->
+                        </div>
+                        
+                        <!--
+                        <div class="flotante-pie">
+                        <a class="boton boton-rojo" onclick="modal('modal2');">Cerrar</a>
+                        </div>
+                        -->
+                    </div>
+                <div class="fondo-transparente" id="modal2"></div>
+                </div>
+                <!-- MODAL 2-->
+
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a class="fancybox" href="#pop1">Contactar proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <!--<a href="#" id="open">Contactar proveedor <img src="img/flecha_02.png" width="25"/></a>-->
+                        <!--boton modal-->
+                        <a onclick="modal('modal1');" class="boton boton-azul">Ver productor &nbsp <img src="img/flecha_02.png" width="25"/></a>
+                        <a onclick="modal('modal2');" class="boton boton-azul">Contactar con el proveedor &nbsp <img src="img/flecha_02.png" width="25"/></a>
+                        <!--boton modal-->
                     </div>
 
                     
                 </div>
-                <div class="col-md-2 date">
-                    Del: 25/08/2015<br>
-                    Al: 30/09/2015 
-                    
-                </div>
-                <div class="col-md-1 date"> 3</div>
+                
             </div>
             <!-- Area Gris-->
             <div class="contGray">
+            	<div class="col-md-3 sPad">
+                    <figure class="sMar">
+                    <img class="img-responsive" src="img/producto_pallar_01.jpg"/>
+                    </figure>
+                </div>
+                
                 <div class="col-md-6">
-                    <h3>Pallares Iqueños. 24/08/2015</h3>
+                    <h2>Pallares Iqueños.</h2>
                     <p>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 
+                    Voumen de oferta: 50 Kg x semana<br>
+                    Calidad: Extra y primera.<br>
+                    Lugar de Producción: Huanacaure, distrito de Chinchao (Huánuco).<br>
+                    Precio: S/.3.20 x Kg<br>
+                    Lugar de entrega: Lima
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a href="#">Contactar proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Ver productor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Contactar con el proveedor <img src="img/flecha_02.png" width="25"/></a>
                     </div>
-
-                    
                 </div>
-                <div class="col-md-2 date">
-                    Del: 25/08/2015<br>
-                    Al: 30/09/2015 
-                    
-                </div>
-                <div class="col-md-1 date"> 3</div>
             </div>
             <!-- Fin Area Gris-->
             <div class="contWhite">
+            	<div class="col-md-3 sPad">
+                    <figure class="sMar">
+                    <img class="img-responsive" src="img/producto_aji_01.jpg"/>
+                    </figure>
+                </div>
+                
                 <div class="col-md-6">
-                    <h3>Quesos Andinos. 24/08/2015</h3>
+                    <h2>Aji Limo de Manchay.</h2>
                     <p>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 
+                    Voumen de oferta: 50 Kg x semana<br>
+                    Calidad: Extra y primera.<br>
+                    Lugar de Producción: Huanacaure, distrito de Chinchao (Huánuco).<br>
+                    Precio: S/.3.20 x Kg<br>
+                    Lugar de entrega: Lima
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a href="#">Contactar proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Ver productor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Contactar con el proveedor <img src="img/flecha_02.png" width="25"/></a>
                     </div>
-
-                    
                 </div>
-                <div class="col-md-2 date">
-                    Del: 25/08/2015<br>
-                    Al: 30/09/2015 
-                    
-                </div>
-                <div class="col-md-1 date"> 3</div>
             </div>
-            <!-- Area Gris-->
+           <!-- Area Gris-->
             <div class="contGray">
+            	<div class="col-md-3 sPad">
+                    <figure class="sMar">
+                    <img class="img-responsive" src="img/producto_aji_01.jpg"/>
+                    </figure>
+                </div>
+                
                 <div class="col-md-6">
-                    <h3>Chirimoya Cumbe. 23/08/2015</h3>
+                    <h2>Aji Limo de Lambayeque.</h2>
                     <p>
-                            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500 
+                    Voumen de oferta: 50 Kg x semana<br>
+                    Calidad: Extra y primera.<br>
+                    Lugar de Producción: Huanacaure, distrito de Chinchao (Huánuco).<br>
+                    Precio: S/.3.20 x Kg<br>
+                    Lugar de entrega: Lima
                     </p>
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a href="#">Contactar proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Ver productor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Contactar con el proveedor <img src="img/flecha_02.png" width="25"/></a>
                     </div>
-
-                    
                 </div>
-                <div class="col-md-2 date">
-                    Del: 25/08/2015<br>
-                    Al: 30/09/2015 
-                    
-                </div>
-                <div class="col-md-1 date"> 3</div>
             </div>
             <!-- Fin Area Gris-->
         </div>
@@ -461,51 +395,83 @@
 
     
 
-    <footer>
+<footer>
         <hr>
         <div class="row">
-            <div class="col-md-2">
-                <figure>
+            <div class="col-md-3">
+            		<figure>
                     <img src="img/Gran_Mercardo_LOGO_1.png" alt="" class="img-responsive">
-                </figure>
-                
+                    </figure>
             </div>
-            <div class="col-md-offset-2 col-md-4">
-                <p class="font05 pull-right">
-                    Oficina Central APEGA<br>
-                    <span>TEL： 51 (1) 211.1111</span>
-                </p>
+            
+            <div class="col-md-3">
             </div>
-            <div class="col-md-4">
-                <p class="font05">
-                    Escríbenos a<br>
-                    <span><a href="mailto:apega@apega.pe">apega@apega.pe</a></span>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-6"></div>
+            
             <div class="col-md-3">
                 <ul>
+                	<p class="font05">
+                    <br>
+                    Oficina Central APEGA<br>
+                    TEL： 51 (1) 461.2221
+                    </p>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="">
+                <p class="font05">
+                	<br>
+                    Escríbenos a<br>
+                    <span><a href="mailto:apega@apega.pe">apega@apega.pe</a></span>
+                 </p>   
+                </ul>
+            </div>
+        </div>
+        
+        
+        <hr>
+        
+        
+        <div class="row">
+            <div class="col-md-6">
+            		<ul>
+                    <li>Con el apoyo de:</li>
+                    </ul>
+                    
+                    <div class="col-md-12">
+                            <div class="col-md-4" sPad>
+                            <img src="img/bid.png" alt=""  class="img-responsive">
+                            </div>
+                            <div class="col-md-4" sPad>
+                            <img src="img/fomin.png" alt=""  class="img-responsive">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                    </div>
+            </div>
+            
+            <div class="col-md-3">
+                <ul>
+                	<br>
                     <li><a class="font05" href="">> Qué es El Gran Mercado?</a></li>                        
                     <li><a class="font05" href="">> Quiero comprar </a></li>
                     <li><a class="font05" href="">> Quiero vender </a></li>
                     <li><a class="font05" href="">> Pizarra de Productos </a></li>
                     <li><a class="font05" href="">> Productos de Estación </a></li>
-                    <li><a class="font05" href="">> Infórmate </a></li>
-                    <li><a class="font05" href="">> Los Campeones</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <ul class="">
+                	<br>
                     <li><a href="" class="font05">> Contáctanos</a></li>
                     <li><a href="" class="font05">> Política de Privacidad</a></li>
                     <li><a href="" class="font05">> FAQ</a></li>
                 </ul>
             </div>
         </div>
+
+
         <hr>
+        
         <div class="row">
             <div class="col-md-2">
                 <p>© 2015 Gran Mercado.</p>
@@ -514,16 +480,20 @@
                 <p><a href="http://www.plusgstudio.com" target="_blank">Diseñado por PlusG</a></p>
             </div>
         </div>
-    </footer>
+</footer>
 
 </div>
+
+
+<script src="js/base.js"></script>
+
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="./index_files/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="./index_files/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>
@@ -533,359 +503,6 @@
     </script>
 
 
-<!--UNO-->
-<div id="pop1" style="width:700; display:none;">
-<td width="700" height="50" valign="top" align="left">
-    		<table cellspacing="0" cellpadding="0" border="0">
-            <td width="700" height="50" valign="middle" align="left">
-            </td>
-            </table>             
 
-            
-    		<table cellspacing="0" cellpadding="0" border="0">
-            <td width="20" height="50" valign="middle" align="left">
-			</td>
-            
-			<td width="660" height="500" valign="top" align="center">
-            		<table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    <div id="font11" class="class1">
-                    <span class="underline">FICHA</span>
-					</div>
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    NOMBRE DE LA ORGANIZACIÓN
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0" bgcolor="#4D4D4D">
-                    <td width="660" height="1" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    NOMBRE DE CONTACTO COMERCIAL
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0" bgcolor="#4D4D4D">
-                    <td width="660" height="1" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="20" valign="middle" align="left">
-                    TELÉFONO
-                    </td>
-                    <td width="60" height="20">
-                    </td>
-                    <td width="300" height="20" valign="middle" align="left">
-                    CORREO
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    <td width="60" height="1">
-                    </td>
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    NOMBRE DE CONTACTO COMERCIAL
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0" bgcolor="#4D4D4D">
-                    <td width="660" height="1" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="20" valign="middle" align="left">
-                    NOMBRE DEL PRODUCTO
-                    </td>
-                    <td width="60" height="20">
-                    </td>
-                    <td width="300" height="20" valign="middle" align="left">
-                    VARIEDAD
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    <td width="60" height="1">
-                    </td>
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="20" valign="middle" align="left">
-                    VOLUMEN DE OFERTA
-                    </td>
-                    <td width="60" height="20">
-                    </td>
-                    <td width="300" height="20" valign="middle" align="left">
-                    PRESENTACIÓN DEL PRODUCTO
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    <td width="60" height="1">
-                    </td>
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="20" valign="middle" align="left">
-                    PRECIO DEL PRODUCTO
-                    </td>
-                    <td width="60" height="20">
-                    </td>
-                    <td width="300" height="20" valign="middle" align="left">
-                    LUGAR DE ENTREGA
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    <td width="60" height="1">
-                    </td>
-                    <td width="300" height="1" valign="middle" align="left" bgcolor="#4D4D4D">
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    CUENTA CON ALGÚN TIPO DE CERTIFICACIÓN: SI ( )  NO ( )
-                    </td>
-                    </table>
-                    
-                    
-                    
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="40" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="20" valign="middle" align="left">
-                    Mencione el tipo de Certificación:
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0">
-                    <td width="660" height="30" valign="middle" align="left">
-                    </td>
-                    </table>
-                    
-                    <table cellspacing="0" cellpadding="0" border="0" bgcolor="#4D4D4D">
-                    <td width="660" height="1" valign="middle" align="left">
-                    </td>
-                    </table>
-    		</td>
-            
-            <td width="20" height="50" valign="middle" align="left">
-			</td>
-    		</table>
-            
-            
-            
-            <table cellspacing="0" cellpadding="0" border="0">
-            <td width="700" height="20" valign="middle" align="left">
-			</td>
-            </table> 
-            
-            
-            
-			<table border="0" cellpadding="0" cellspacing="0">
-            <td width="470" height="40">
-            </td>
-			<td width="15" height="40" bgcolor="#3B3B3B">
-				</td>
-				<td width="145" height="40" align="right" valign="middle" bgcolor="#3B3B3B">
-				<div id="font03" class="class1">
-				<a href="#">enviar información</a>
-				</div>
-				</td>
-				<td width="10" height="40" bgcolor="#3B3B3B">
-				</td>
-				<td width="25" height="40" align="left" valign="bottom" bgcolor="#3B3B3B">
-				<a href="#"><img src="images/flecha_02.png" width="25"/></a>
-				</td>
-				<td width="15" height="40" align="left" bgcolor="#3B3B3B">
-			</td>
-            <td width="20" height="40">
-            </td>
-			</table>
-            
-            <table cellspacing="0" cellpadding="0" border="0">
-            <td width="700" height="20" valign="middle" align="left">
-			</td>
-            </table>            
-    </td>    
-</div>
-<!--FIN DE UNO-->
 
-<script>
-function Animate2id(id,ease){ //the id to animate, the easing type
-	var animSpeed=2000; //set animation speed
-	var $container=$("#container"); //define the container to move
-	if(ease){ //check if ease variable is set
-		var easeType=ease;
-	} else {
-    	var easeType="easeOutQuart"; //set default easing type
-	}
-	//do the animation
-    $container.stop().animate({"left": -($(id).position().left)}, animSpeed, easeType);
-}
-</script>
-
-<script>
-//config
-$float_speed=1500; //milliseconds
-$float_easing="easeOutQuint";
-$menu_fade_speed=500; //milliseconds
-$closed_menu_opacity=0.5;
-
-//cache vars
-$fl_menu=$("#fl_menu");
-$fl_menu_menu=$("#fl_menu .menu");
-$fl_menu_label=$("#fl_menu .label");
-
-$(window).load(function() {
-	//menuPosition=$('#fl_menu').position().top;
-	FloatMenu();
-	$fl_menu.hover(
-		function(){ //mouse over
-			$fl_menu_label.fadeTo($menu_fade_speed, 1);
-			$fl_menu_menu.fadeIn($menu_fade_speed);
-		},
-		function(){ //mouse out
-			$fl_menu_label.fadeTo($menu_fade_speed, $closed_menu_opacity);
-			$fl_menu_menu.fadeOut($menu_fade_speed);
-		}
-	);
-});
-
-$(window).scroll(function () { 
-	FloatMenu();
-});
-
-function FloatMenu(){
-	var scrollAmount=$(document).scrollTop();
-	var newPosition=menuPosition+scrollAmount;
-	if($(window).height()<$fl_menu.height()+$fl_menu_menu.height()){
-		$fl_menu.css("top",menuPosition);
-	} else {
-		$fl_menu.stop().animate({top: newPosition}, $float_speed, $float_easing);
-	}
-}
-</script>
-</body>
-</html>
+</body></html>

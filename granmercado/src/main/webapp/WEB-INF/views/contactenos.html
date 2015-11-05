@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)http://www.perfectview.com.pe/ipnet/plusg/index.html -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta charset="utf-8">
@@ -33,6 +33,73 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href="css/css" rel="stylesheet" type="text/css">
+    
+ <style>
+ #popup {
+	left: 0;
+    position: absolute;
+    top: 000;
+    width: 100%;
+    z-index: 1001;
+}
+
+#popup2 {
+	left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+}
+
+.content-popup {
+margin:0px auto;
+margin-top:170px;
+padding:10px;
+width:500px;
+min-height:250px;
+border-radius:4px;
+background-color:#FFFFFF;
+box-shadow: 0 2px 5px #666666;
+}
+
+.close {
+position:relative;
+left:480px;
+}
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#open').click(function(){
+		$('#popup').fadeIn('slow');
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	
+	$('#close').click(function(){
+		$('#popup').fadeOut('slow');
+		//$('body').css('opacity', '1');
+		return false;
+	});
+	
+	$('#open2').click(function(){
+		$('#popup2').fadeIn('slow');
+		//$('body').css('opacity', '0.5');
+		return false;
+	});
+	
+	$('#close2').click(function(){
+		$('#popup2').fadeOut('slow');
+		//$('body').css('opacity', '1');
+		return false;
+	});
+});
+</script>   
+
+<!--Colocar entre <head> y </head> -->
+<link rel="stylesheet" href="css/base.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+</script>
 </head>
 
 <body>
@@ -44,22 +111,20 @@
 				|
                 <li><a href="nosotros.html">Nosotros </a></li>
 				|
-                <li><a href="multimedia.html">Multimedia </a></li>
-				|
                 <li><a class="active" href="contactenos.html">Contáctenos</a></li>
             </ul>
             
 		<div class="pull-right absolut">
               <ul class="list-unstyled list-inline list-social-icons">
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_fb.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_fb.png" width="24"/></a>
                   </li>
 
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_tw.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_tw.png" width="24"/></a>
                   </li>
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_yt.png" width="20"/></a>
+                    <a href="#"><img src="img/icon_yt.png" width="24"/></a>
                   </li>
               </ul>
             </div>
@@ -83,44 +148,57 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="quiero_comprar.html">Quiero<br>Comprar</a>
-                    </li>
-                    <li>
-                        <a href="quiero_vender.html">Quiero<br>Vender</a>
+                        <a href="quiero_comprar.html">Productos<br>Ofrecidos</a>
                     </li>
                     <li>
                         <a href="productos.html">Pizarra de<br>Productos</a>
                     </li>
                     <li>
-                        <a href="#">Productos<br>de Estación</a>
+                        <a class="active"  href="sube_tu_oferta.html"><span style="color: rgba(218,0,127,1.00); background-color: rgba(255,255,255,1.00);">&nbsp;&nbsp; Sube tu &nbsp;&nbsp;<br>&nbsp;&nbsp; Oferta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     </li>
                     <li>
-                        <a href="#">Infórmate</a>
+                    <div class="pull-right  navbar-header">
+                    <img src="img/Mistura_Apega_LOGO.png" width="80">
+                    </div>
                     </li>
-                    <li>
-                        <a href="#">Los<br>Campeones</a>
-                    </li>
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-    
+
+
+    <header>
+        <div class="">
+            <div class="container sPad">
+                <div class="col-md-12 sPad">
+                    <!--<figure class="sMar">-->
+                    <div class="item">
+                        <img src="img/nosotros.jpg" alt="" class="img-responsive">
+                    </div>
+                    <!--</figure>-->
+                    <div class="bgTitle margLef">
+                        <h2 class="pad">CONTÁCTENOS</h2>
+                    </div>                  
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+    </header>    
     
     <!-- Page Content -->
  <div class="container">
 
 
     
-        <div class="row contInterno">
-            <div class="bgTitle">
-                <h2 class="pad">Contáctenos</h2>
-            </div>
+        <div class="row ">
             <!-- Map Column -->
             <div class="col-md-8">
+            	<br>
                 <h3>Escriba su mensaje</h3>
+                <br>
                 <form name="sentMessage" id="contactForm" novalidate>
                     <div class="control-group form-group">
                         <div class="controls">
@@ -155,75 +233,107 @@
             
             <!-- Contact Details Column -->
             <div class="col-md-4">
-                
-                <h3>Dirección</h3>
+                <br>
+                <h2>Oficina Central</h2>
                 <p>
-                    3481 Melrose Place<br>Beverly Hills, CA 90210<br>
+                 Diego Gavilán 126 (ex María Parado de Bellido), Magdalena del Mar, Lima
                 </p>
                 <p>
-                    <abbr title="Phone">T</abbr>: (123) 456-7890</p>
+                    <abbr title="Phone">TELÉFONO</abbr>: 51 (1) 461.2221</p>
                 <p>
-                    <abbr title="Email">E</abbr>: <a href="mailto:name@example.com">name@example.com</a>
+                    <abbr title="Email">EMAIL</abbr>: <a href="mailto:apega@apega.pe">apega@apega.pe</a>
                 </p>
                 <p><!--<i class="fa fa-clock-o"></i> -->
-                    <abbr title="Hours">H</abbr>: Lunes - Viernes: 9:00 AM a 5:00 PM
+                    <abbr title="Hours">HORARIO</abbr>: Lunes - Viernes: 9:00 AM a 6:00 PM
                 </p>
                 
                  
                  <!-- Embedded Google Map -->
+                 <!--
                 <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="./contactenos_files/embed.html"></iframe>
-               
+               	-->
             </div>
         </div>
     
 
     
-
-    <footer>
+<footer>
         <hr>
         <div class="row">
-            <div class="col-md-2">
-                <figure>
+            <div class="col-md-3">
+            		<figure>
                     <img src="img/Gran_Mercardo_LOGO_1.png" alt="" class="img-responsive">
-                </figure>
-                
+                    </figure>
             </div>
-            <div class="col-md-offset-2 col-md-4">
-                <p class="font05 pull-right">
-                    Oficina Central APEGA<br>
-                    <span>TEL： 51 (1) 211.1111</span>
-                </p>
+            
+            <div class="col-md-3">
             </div>
-            <div class="col-md-4">
-                <p class="font05">
-                    Escríbenos a<br>
-                    <span><a href="mailto:apega@apega.pe">apega@apega.pe</a></span>
-                </p>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-6"></div>
+            
             <div class="col-md-3">
                 <ul>
+                	<p class="font05">
+                    <br>
+                    Oficina Central APEGA<br>
+                    TEL： 51 (1) 461.2221
+                    </p>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="">
+                <p class="font05">
+                	<br>
+                    Escríbenos a<br>
+                    <span><a href="mailto:apega@apega.pe">apega@apega.pe</a></span>
+                 </p>   
+                </ul>
+            </div>
+        </div>
+        
+        
+        <hr>
+        
+        
+        <div class="row">
+            <div class="col-md-6">
+            		<ul>
+                    <li>Con el apoyo de:</li>
+                    </ul>
+                    
+                    <div class="col-md-12">
+                            <div class="col-md-4" sPad>
+                            <img src="img/bid.png" alt=""  class="img-responsive">
+                            </div>
+                            <div class="col-md-4" sPad>
+                            <img src="img/fomin.png" alt=""  class="img-responsive">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                    </div>
+            </div>
+            
+            <div class="col-md-3">
+                <ul>
+                	<br>
                     <li><a class="font05" href="">> Qué es El Gran Mercado?</a></li>                        
                     <li><a class="font05" href="">> Quiero comprar </a></li>
                     <li><a class="font05" href="">> Quiero vender </a></li>
                     <li><a class="font05" href="">> Pizarra de Productos </a></li>
                     <li><a class="font05" href="">> Productos de Estación </a></li>
-                    <li><a class="font05" href="">> Infórmate </a></li>
-                    <li><a class="font05" href="">> Los Campeones</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <ul class="">
+                	<br>
                     <li><a href="" class="font05">> Contáctanos</a></li>
                     <li><a href="" class="font05">> Política de Privacidad</a></li>
                     <li><a href="" class="font05">> FAQ</a></li>
                 </ul>
             </div>
         </div>
+
+
         <hr>
+        
         <div class="row">
             <div class="col-md-2">
                 <p>© 2015 Gran Mercado.</p>
@@ -232,7 +342,9 @@
                 <p><a href="http://www.plusgstudio.com" target="_blank">Diseñado por PlusG</a></p>
             </div>
         </div>
-    </footer>
+</footer>
+
+
 
 </div>
     <!-- /.container -->
