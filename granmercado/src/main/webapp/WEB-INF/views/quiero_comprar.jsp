@@ -1,30 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" pageEncoding="utf8"
+	contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<spring:url value="/resources/css" var="Css" />
+<spring:url value="/resources/js" var="Js" />
+<spring:url value="/resources/img" var="Img" />
+<spring:url value="/resources/index_files" var="IndexFiles" />
 
     <title>El Gran Mercado</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link href="${Css}/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${Css}/normalize.css">
 
     <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="${Css}/modern-business.css" rel="stylesheet">
     
-    <link href="css/main.css" rel="stylesheet">
+    <link href="${Css}/main.css" rel="stylesheet">
     
-    <link rel="Shortcut Icon" href="img/granmercado.ico">
+    <link rel="Shortcut Icon" href="${Img}/granmercado.ico">
     
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Lato:400,900italic,700italic,400italic,300italic,100,100italic,300,700,900|Source+Sans+Pro:400,700italic,900italic,600italic,400italic,300italic,200italic,900,700,600,300,200|Ubuntu:400,300,500,700,300italic,400italic,500italic,700italic|Exo:400,100,200,300,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic|Chivo:400,900italic,400italic,900' rel='stylesheet' type='text/css'>
 
     <!-- Custom Fonts -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${Css}/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,7 +42,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link href="css/css" rel="stylesheet" type="text/css">
+    <link href="${Css}/css" rel="stylesheet" type="text/css">
     
  <style>
  #popup {
@@ -97,7 +107,7 @@ $(document).ready(function(){
 </script>   
 
 <!--Colocar entre <head> y </head> -->
-<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="${Css}/base.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
 </script>
 </head>
@@ -107,24 +117,24 @@ $(document).ready(function(){
 
         <div class="container relat" id="font00">
             <ul class="menu-top pull-left">
-                <li><a href="index.html">Inicio </a></li>
+                <li><a href="<c:url value="/index" />">Inicio </a></li>
 				|
-                <li><a href="nosotros.html">Nosotros </a></li>
+                <li><a href="<c:url value="/nosotros" />">Nosotros </a></li>
 				|
-                <li><a href="contactenos.html">Contáctenos</a></li>
+                <li><a href="<c:url value="/contactenos" />">Contáctenos</a></li>
             </ul>
             
 		<div class="pull-right absolut">
               <ul class="list-unstyled list-inline list-social-icons">
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_fb.png" width="24"/></a>
+                    <a href="#"><img src="${Img}/icon_fb.png" width="24"/></a>
                   </li>
 
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_tw.png" width="24"/></a>
+                    <a href="#"><img src="${Img}/icon_tw.png" width="24"/></a>
                   </li>
                   <li class="sPad">
-                    <a href="#"><img src="img/icon_yt.png" width="24"/></a>
+                    <a href="#"><img src="${Img}/icon_yt.png" width="24"/></a>
                   </li>
               </ul>
             </div>
@@ -142,23 +152,23 @@ $(document).ready(function(){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img class="img-responsive" src="img/Gran_Mercardo_LOGO_2.png" width="180"></a>
+                <a class="navbar-brand" href="<c:url value="/index" />"><img class="img-responsive" src="${Img}/Gran_Mercardo_LOGO_2.png" width="180"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="quiero_comprar.html"><span style="color:rgba(255,237,0,1.00);">Productos<br>Ofrecidos</span></a>
+                        <a href="<c:url value="/quiero_comprar" />"><span style="color:rgba(255,237,0,1.00);">Productos<br>Ofrecidos</span></a>
                     </li>
                     <li>
-                        <a href="productos.html">Pizarra de<br>Productos</a>
+                        <a href="<c:url value="/productos" />">Pizarra de<br>Productos</a>
                     </li>
                     <li>
-                        <a href="sube_tu_oferta.html"><span style="color: rgba(218,0,127,1.00); background-color: rgba(255,255,255,1.00);">&nbsp;&nbsp; Sube tu &nbsp;&nbsp;<br>&nbsp;&nbsp; Oferta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
+                        <a href="<c:url value="/sube_tu_oferta" />"><span style="color: rgba(218,0,127,1.00); background-color: rgba(255,255,255,1.00);">&nbsp;&nbsp; Sube tu &nbsp;&nbsp;<br>&nbsp;&nbsp; Oferta &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>
                     </li>
                     <li>
                     <div class="pull-right  navbar-header">
-                    <img src="img/Mistura_Apega_LOGO.png" width="80">
+                    <img src="${Img}/Mistura_Apega_LOGO.png" width="80">
                     </div>
                     </li>
                 </ul>
@@ -186,7 +196,7 @@ $(document).ready(function(){
             <div class="contWhite">
             	<div class="col-md-3 sPad">
                     <figure class="sMar">
-                    <img class="img-responsive" src="img/producto_aji_01.jpg"/>
+                    <img class="img-responsive" src="${Img}/producto_aji_01.jpg"/>
                     </figure>
                 </div>
                 
@@ -223,7 +233,7 @@ $(document).ready(function(){
                                 <!---------------------->
                                 <div class="col-md-6">
                                         <figure class="sMar">
-                                        <img class="img-responsive" src="img/producto_lucuma_04.jpg"/>
+                                        <img class="img-responsive" src="${Img}/producto_lucuma_04.jpg"/>
                                         </figure>
                                         <br>
                                 </div>
@@ -303,10 +313,10 @@ $(document).ready(function(){
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <!--<a href="#" id="open">Contactar proveedor <img src="img/flecha_02.png" width="25"/></a>-->
+                        <!--<a href="#" id="open">Contactar proveedor <img src="${Img}/flecha_02.png" width="25"/></a>-->
                         <!--boton modal-->
-                        <a onclick="modal('modal1');" class="boton boton-azul">Ver productor &nbsp <img src="img/flecha_02.png" width="25"/></a>
-                        <a onclick="modal('modal2');" class="boton boton-azul">Contactar con el proveedor &nbsp <img src="img/flecha_02.png" width="25"/></a>
+                        <a onclick="modal('modal1');" class="boton boton-azul">Ver productor &nbsp <img src="${Img}/flecha_02.png" width="25"/></a>
+                        <a onclick="modal('modal2');" class="boton boton-azul">Contactar con el proveedor &nbsp <img src="${Img}/flecha_02.png" width="25"/></a>
                         <!--boton modal-->
                     </div>
 
@@ -318,7 +328,7 @@ $(document).ready(function(){
             <div class="contGray">
             	<div class="col-md-3 sPad">
                     <figure class="sMar">
-                    <img class="img-responsive" src="img/producto_pallar_01.jpg"/>
+                    <img class="img-responsive" src="${Img}/producto_pallar_01.jpg"/>
                     </figure>
                 </div>
                 
@@ -334,8 +344,8 @@ $(document).ready(function(){
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a href="#">Ver productor <img src="img/flecha_02.png" width="25"/></a>
-                        <a href="#">Contactar con el proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Ver productor <img src="${Img}/flecha_02.png" width="25"/></a>
+                        <a href="#">Contactar con el proveedor <img src="${Img}/flecha_02.png" width="25"/></a>
                     </div>
                 </div>
             </div>
@@ -343,7 +353,7 @@ $(document).ready(function(){
             <div class="contWhite">
             	<div class="col-md-3 sPad">
                     <figure class="sMar">
-                    <img class="img-responsive" src="img/producto_aji_01.jpg"/>
+                    <img class="img-responsive" src="${Img}/producto_aji_01.jpg"/>
                     </figure>
                 </div>
                 
@@ -359,8 +369,8 @@ $(document).ready(function(){
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a href="#">Ver productor <img src="img/flecha_02.png" width="25"/></a>
-                        <a href="#">Contactar con el proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Ver productor <img src="${Img}/flecha_02.png" width="25"/></a>
+                        <a href="#">Contactar con el proveedor <img src="${Img}/flecha_02.png" width="25"/></a>
                     </div>
                 </div>
             </div>
@@ -368,7 +378,7 @@ $(document).ready(function(){
             <div class="contGray">
             	<div class="col-md-3 sPad">
                     <figure class="sMar">
-                    <img class="img-responsive" src="img/producto_aji_01.jpg"/>
+                    <img class="img-responsive" src="${Img}/producto_aji_01.jpg"/>
                     </figure>
                 </div>
                 
@@ -384,8 +394,8 @@ $(document).ready(function(){
                 </div>
                 <div class="col-md-3">
                     <div class="contEnlace">
-                        <a href="#">Ver productor <img src="img/flecha_02.png" width="25"/></a>
-                        <a href="#">Contactar con el proveedor <img src="img/flecha_02.png" width="25"/></a>
+                        <a href="#">Ver productor <img src="${Img}/flecha_02.png" width="25"/></a>
+                        <a href="#">Contactar con el proveedor <img src="${Img}/flecha_02.png" width="25"/></a>
                     </div>
                 </div>
             </div>
@@ -400,7 +410,7 @@ $(document).ready(function(){
         <div class="row">
             <div class="col-md-3">
             		<figure>
-                    <img src="img/Gran_Mercardo_LOGO_1.png" alt="" class="img-responsive">
+                    <img src="${Img}/Gran_Mercardo_LOGO_1.png" alt="" class="img-responsive">
                     </figure>
             </div>
             
@@ -439,10 +449,10 @@ $(document).ready(function(){
                     
                     <div class="col-md-12">
                             <div class="col-md-4" sPad>
-                            <img src="img/bid.png" alt=""  class="img-responsive">
+                            <img src="${Img}/bid.png" alt=""  class="img-responsive">
                             </div>
                             <div class="col-md-4" sPad>
-                            <img src="img/fomin.png" alt=""  class="img-responsive">
+                            <img src="${Img}/fomin.png" alt=""  class="img-responsive">
                             </div>
                             <div class="col-md-4">
                             </div>
@@ -485,15 +495,15 @@ $(document).ready(function(){
 </div>
 
 
-<script src="js/base.js"></script>
+<script src="${Js}/base.js"></script>
 
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="${Js}/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="${Js}/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>

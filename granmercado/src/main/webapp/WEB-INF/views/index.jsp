@@ -122,13 +122,13 @@
 
 		<div class="container relat" id="font00">
 			<ul class="menu-top pull-left">
-				<li><a class="active" href="index.html">Inicio </a></li> |
+				<li><a class="active" href="<c:url value="/index" />">Inicio </a></li> |
 
-				<li><a href="nosotros.html">Nosotros </a></li> |
+				<li><a href="<c:url value="/nosotros" />">Nosotros </a></li> |
 
 
 
-				<li><a href="contactenos.html">Contáctenos</a></li>
+				<li><a href="<c:url value="/contactenos" />">Contáctenos</a></li>
 			</ul>
 
 			<div class="pull-right absolut">
@@ -156,7 +156,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"><img
+				<a class="navbar-brand" href="<c:url value="/index" />"><img
 					class="img-responsive" src="${Img}/Gran_Mercardo_LOGO_2.png"
 					width="180"></a>
 			</div>
@@ -164,14 +164,14 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav ">
-					<li><a href="quiero_comprar.html">Productos<br>Ofrecidos</a>
+					<li><a href="<c:url value="/quiero_comprar" />">Productos<br>Ofrecidos</a>
 
 
 
 					</li>
-					<li><a href="productos.html">Pizarra de<br>Productos</a>
+					<li><a href="<c:url value="/productos" />">Pizarra de<br>Productos</a>
 					</li>
-					<li><a href="sube_tu_oferta.html"><span
+					<li><a href="<c:url value="/sube_tu_oferta" />"><span
 							style="color: rgba(218, 0, 127, 1.00); background-color: rgba(255, 255, 255, 1.00);">&nbsp;&nbsp;
 								Sube tu &nbsp;&nbsp;<br>&nbsp;&nbsp; Oferta
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -290,7 +290,7 @@
 
 					</div>
 					<div class="contEnlace2">
-						<a href="nosotros.html" class="boton boton-azul">Leer todo <img
+						<a href="<c:url value="/nosotros" />" class="boton boton-azul">Leer todo <img
 							src="${Img}/flecha_02.png" width="25" /></a>
 					</div>
 				</div>
@@ -322,14 +322,14 @@
 						<div class="col-md-12">
 							<figure class="sMar">
 								<br>
-								<a href="producto_01.html"><img class="img-responsive"
+								<a href="<c:url value="/producto_01" />"><img class="img-responsive"
 									src="${Img}/producto_aji_01.jpg" /></a>
 							</figure>
 							<h2 class="font06">${producto.nomProducto}</h2>
 							<p>${producto.descProducto}</p>
 
 							<div class="contEnlace2">
-								<a href="producto_01.html" class="boton boton-azul">Me
+								<a href="<c:url value="/producto_01" />" class="boton boton-azul">Me
 									interesa <img src="${Img}/flecha_02.png" width="25" />
 								</a>
 							</div>
