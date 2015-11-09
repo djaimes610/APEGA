@@ -323,7 +323,7 @@
 							<figure class="sMar">
 								<br>
 								<a href="<c:url value="/producto_01" />"><img class="img-responsive"
-									src="${Img}/producto_aji_01.jpg" /></a>
+									src="${Img}/${producto.imagenProducto}" /></a>
 							</figure>
 							<h2 class="font06">${producto.nomProducto}</h2>
 							<p>${producto.descProducto}</p>
