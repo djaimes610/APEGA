@@ -1,13 +1,19 @@
 package pe.com.granmercado.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,8 +30,14 @@ public class Estacionalidad implements Serializable {
 	@Column(name = "`ID_ESTACIONALIDAD`", nullable = false)
 	private int idEstacionalidad;
 
-	@Column(name = "`ID_PRODUCTO`", nullable = false)
-	private String idProducto;
+	@ManyToOne
+	@JoinColumn(name = "`ID_PRODUCTO`")
+	private Producto producto;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "`APE_AS_MES_ESTAC`", joinColumns = {
+			@JoinColumn(name = "`ID_ESTACIONALIDAD`") }, inverseJoinColumns = { @JoinColumn(name = "`ID_MES`") })
+	private Set<Mes> meses = new HashSet<Mes>();
 
 	public int getIdEstacionalidad() {
 		return idEstacionalidad;
@@ -35,12 +47,12 @@ public class Estacionalidad implements Serializable {
 		this.idEstacionalidad = idEstacionalidad;
 	}
 
-	public String getIdProducto() {
-		return idProducto;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	public void setIdProducto(String idProducto) {
-		this.idProducto = idProducto;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 }

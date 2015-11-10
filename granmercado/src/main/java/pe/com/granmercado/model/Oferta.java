@@ -1,4 +1,5 @@
 package pe.com.granmercado.model;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -6,67 +7,69 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
- 
+
 @Entity
-@Table(name="`APE_TR_OFERTA`",schema="`APEGA`")
+@Table(name = "`APE_TR_OFERTA`", schema = "`APEGA`")
 public class Oferta implements Serializable {
- 
-    /**
+
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "`ID_OFERTA`", nullable = false)
-    private int idOferta;
- 
-    @Column(name = "`VOLUMEN_OFERTA`", nullable = false)
-    private Double volumenOferta;
- 
-    @Column(name = "`MEDIDA_CANTIDAD`", nullable = false)
-    private String medidaCantidad;
-    
-    @Column(name = "`PRESENTACION_PRODUCTO`", nullable = false)
-    private String presentacionProducto;
-    
-    @Column(name = "`MONTO_CANTIDAD`", nullable = false)
-    private String montoCantidad;
-    
-    @Column(name = "`MONTO_MONEDA`", nullable = false)
-    private int montoMoneda;
-    
-    @Column(name = "`ESTADO_OFERTA`", nullable = false)
-    private String estadoOFerta;
-    
-    @Column(name = "`COD_VARIEDAD`", nullable = false)
-    private String codigoVariedad;
-    
-    
-    @Column(name = "`COD_PRODUCTO`", nullable = false)
-    private int codigoProducto;
-    
-    @Column(name = "`IMAGEN_OFERTA`", nullable = false)
-    private String imagenOferta;
-    
-    @Column(name = "`COD_UBIGEO`", nullable = false)
-    private String codigoUbigeo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "`ID_OFERTA`", nullable = false)
+	private int idOferta;
 
-    @Column(name = "`FECHA_CREACION`", nullable = false)
-    private String fechaCreacion;
-    
-    @Column(name = "`USUARIO_CREACION`", nullable = false)
-    private String usuarioCreacion;
-    
-    @Column(name = "`FECHA_MODIFICACION`", nullable = false)
-    private String fechaModificacion;
-    
-    @Column(name = "`USUARIO_MODIFICACION`", nullable = false)
-    private String usuarioModificacion;
+	@Column(name = "`VOLUMEN_OFERTA`", nullable = false)
+	private Double volumenOferta;
 
-    @Column(name = "`ID_SOLICITUD`", nullable = false)
-    private String idSolicitud;
+	@Column(name = "`MEDIDA_CANTIDAD`", nullable = false)
+	private String medidaCantidad;
+
+	@Column(name = "`PRESENTACION_PRODUCTO`", nullable = false)
+	private String presentacionProducto;
+
+	@Column(name = "`MONTO_CANTIDAD`", nullable = false)
+	private String montoCantidad;
+
+	@Column(name = "`MONTO_MONEDA`", nullable = false)
+	private int montoMoneda;
+
+	@Column(name = "`ESTADO_OFERTA`", nullable = false)
+	private String estadoOFerta;
+
+	@Column(name = "`COD_VARIEDAD`", nullable = false)
+	private String codigoVariedad;
+
+	@ManyToOne
+	@JoinColumn(name = "`COD_PRODUCTO`")
+	private Producto producto;
+
+	@Column(name = "`IMAGEN_OFERTA`", nullable = false)
+	private String imagenOferta;
+
+	@Column(name = "`COD_UBIGEO`", nullable = false)
+	private String codigoUbigeo;
+
+	@Column(name = "`FECHA_CREACION`", nullable = false)
+	private String fechaCreacion;
+
+	@Column(name = "`USUARIO_CREACION`", nullable = false)
+	private String usuarioCreacion;
+
+	@Column(name = "`FECHA_MODIFICACION`", nullable = false)
+	private String fechaModificacion;
+
+	@Column(name = "`USUARIO_MODIFICACION`", nullable = false)
+	private String usuarioModificacion;
+
+	@Column(name = "`ID_SOLICITUD`", nullable = false)
+	private String idSolicitud;
 
 	public int getIdOferta() {
 		return idOferta;
@@ -132,12 +135,12 @@ public class Oferta implements Serializable {
 		this.codigoVariedad = codigoVariedad;
 	}
 
-	public int getCodigoProducto() {
-		return codigoProducto;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	public void setCodigoProducto(int codigoProducto) {
-		this.codigoProducto = codigoProducto;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 	public String getImagenOferta() {
@@ -196,7 +199,4 @@ public class Oferta implements Serializable {
 		this.idSolicitud = idSolicitud;
 	}
 
-  
-  
- 
 }

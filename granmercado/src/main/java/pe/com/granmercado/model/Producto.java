@@ -1,4 +1,5 @@
 package pe.com.granmercado.model;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -6,54 +7,57 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
- 
+
 @Entity
-@Table(name="`APE_MA_PRODUCTO`",schema="`APEGA`")
+@Table(name = "`APE_MA_PRODUCTO`", schema = "`APEGA`")
 public class Producto implements Serializable {
- 
-    /**
+
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "`COD_PRODUCTO`", nullable = false)
-    private int codProducto;
- 
-    @Column(name = "`DESC_PRODUCTO`", nullable = false)
-    private String descProducto;
- 
-    @Column(name = "`NOM_PRODUCTO`", nullable = false)
-    private String nomProducto;
-    
-    @Column(name = "`CALIDAD_PRODUCTO`", nullable = false)
-    private String calidadProducto;
-    
-    @Column(name = "`IMAGEN_PRODUCTO`", nullable = false)
-    private String imagenProducto;
-    
-    @Column(name = "`COD_CATEGORIA`", nullable = false)
-    private int codCategoria;
-    
-    @Column(name = "`MONTO_CANTIDAD`", nullable = false)
-    private int montoCantidad;
-    
-    @Column(name = "`UNMED_PRODUCTO`", nullable = false)
-    private String unmedProducto;
-    
-    @Column(name = "`MEMO_PRODUCTO`", nullable = false)
-    private String memoProducto;
-    
-    @Column(name = "`MONTO_MONEDA`", nullable = false)
-    private String montoMoneda;
-    
-    @Column(name = "`OBSERVACIONES`", nullable = false)
-    private String observaciones;
-    
-    @Column(name = "`ESTADO`", nullable = false)
-    private String estado;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "`COD_PRODUCTO`", nullable = false)
+	private int codProducto;
+
+	@Column(name = "`DESC_PRODUCTO`", nullable = false)
+	private String descProducto;
+
+	@Column(name = "`NOM_PRODUCTO`", nullable = false)
+	private String nomProducto;
+
+	@Column(name = "`CALIDAD_PRODUCTO`", nullable = false)
+	private String calidadProducto;
+
+	@Column(name = "`IMAGEN_PRODUCTO`", nullable = false)
+	private String imagenProducto;
+
+	@ManyToOne
+	@JoinColumn(name = "`COD_CATEGORIA`")
+	private Categoria categoria;
+
+	@Column(name = "`MONTO_CANTIDAD`", nullable = false)
+	private int montoCantidad;
+
+	@Column(name = "`UNMED_PRODUCTO`", nullable = false)
+	private String unmedProducto;
+
+	@Column(name = "`MEMO_PRODUCTO`", nullable = false)
+	private String memoProducto;
+
+	@Column(name = "`MONTO_MONEDA`", nullable = false)
+	private String montoMoneda;
+
+	@Column(name = "`OBSERVACIONES`", nullable = false)
+	private String observaciones;
+
+	@Column(name = "`ESTADO`", nullable = false)
+	private String estado;
 
 	public int getCodProducto() {
 		return codProducto;
@@ -95,12 +99,12 @@ public class Producto implements Serializable {
 		this.imagenProducto = imagenProducto;
 	}
 
-	public int getCodCategoria() {
-		return codCategoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setCodCategoria(int codCategoria) {
-		this.codCategoria = codCategoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public int getMontoCantidad() {
@@ -150,9 +154,5 @@ public class Producto implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
- 
-    
- 
-  
- 
+
 }
