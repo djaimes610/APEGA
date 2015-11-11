@@ -27,17 +27,11 @@ public class Estacionalidad implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "`ID_ESTACIONALIDAD`", nullable = false)
+	@Column(name = "`id_estacionalidad`", nullable = false)
 	private int idEstacionalidad;
 
-	@ManyToOne
-	@JoinColumn(name = "`ID_PRODUCTO`")
-	private Producto producto;
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "`APE_AS_MES_ESTAC`", joinColumns = {
-			@JoinColumn(name = "`ID_ESTACIONALIDAD`") }, inverseJoinColumns = { @JoinColumn(name = "`ID_MES`") })
-	private Set<Mes> meses = new HashSet<Mes>();
+	@Column(name = "`mes_estacionalidad`", nullable = false)
+	private int mesEstacionalidad;
 
 	public int getIdEstacionalidad() {
 		return idEstacionalidad;
@@ -47,12 +41,12 @@ public class Estacionalidad implements Serializable {
 		this.idEstacionalidad = idEstacionalidad;
 	}
 
-	public Producto getProducto() {
-		return producto;
+	public int getMesEstacionalidad() {
+		return mesEstacionalidad;
 	}
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setMesEstacionalidad(int mesEstacionalidad) {
+		this.mesEstacionalidad = mesEstacionalidad;
 	}
 
 }

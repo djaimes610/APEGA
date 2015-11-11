@@ -21,7 +21,7 @@ public class Producto implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="APE_SEQ_PRODUCTO")
 	@Column(name = "`COD_PRODUCTO`", nullable = false)
 	private int codProducto;
 
@@ -58,6 +58,10 @@ public class Producto implements Serializable {
 
 	@Column(name = "`ESTADO`", nullable = false)
 	private String estado;
+	
+	@ManyToOne
+	@JoinColumn(name = "`id_productor`")
+	private Productor productor;	
 
 	public int getCodProducto() {
 		return codProducto;

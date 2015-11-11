@@ -21,55 +21,46 @@ public class Oferta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "`ID_OFERTA`", nullable = false)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="APE_SEQ_OFERTA")
+	@Column(name = "`id_oferta`", nullable = false)
 	private int idOferta;
 
-	@Column(name = "`VOLUMEN_OFERTA`", nullable = false)
+	@Column(name = "`volumen_oferta`", nullable = false)
 	private Double volumenOferta;
 
-	@Column(name = "`MEDIDA_CANTIDAD`", nullable = false)
+	@Column(name = "`medida_cantidad`", nullable = false)
 	private String medidaCantidad;
 
-	@Column(name = "`PRESENTACION_PRODUCTO`", nullable = false)
+	@Column(name = "`presentacion_producto`", nullable = false)
 	private String presentacionProducto;
 
-	@Column(name = "`MONTO_CANTIDAD`", nullable = false)
-	private String montoCantidad;
+	@Column(name = "`monto_cantidad`", nullable = false)
+	private double montoCantidad;
 
-	@Column(name = "`MONTO_MONEDA`", nullable = false)
-	private int montoMoneda;
+	@Column(name = "`monto_moneda`", nullable = false)
+	private String montoMoneda;
 
-	@Column(name = "`ESTADO_OFERTA`", nullable = false)
-	private String estadoOFerta;
-
-	@Column(name = "`COD_VARIEDAD`", nullable = false)
-	private String codigoVariedad;
+	@Column(name = "`estado`", nullable = false)
+	private int estado;
 
 	@ManyToOne
-	@JoinColumn(name = "`COD_PRODUCTO`")
+	@JoinColumn(name = "`cod_producto`")
 	private Producto producto;
 
-	@Column(name = "`IMAGEN_OFERTA`", nullable = false)
-	private String imagenOferta;
-
-	@Column(name = "`COD_UBIGEO`", nullable = false)
+	@Column(name = "`cod_ubigeo`", nullable = false)
 	private String codigoUbigeo;
 
-	@Column(name = "`FECHA_CREACION`", nullable = false)
+	@Column(name = "`fecha_creacion`", nullable = false)
 	private String fechaCreacion;
 
-	@Column(name = "`USUARIO_CREACION`", nullable = false)
+	@Column(name = "`usuario_creacion`", nullable = false)
 	private String usuarioCreacion;
 
-	@Column(name = "`FECHA_MODIFICACION`", nullable = false)
+	@Column(name = "`fecha_modifcacion`", nullable = false)
 	private String fechaModificacion;
 
-	@Column(name = "`USUARIO_MODIFICACION`", nullable = false)
+	@Column(name = "`usuario_modificacion`", nullable = false)
 	private String usuarioModificacion;
-
-	@Column(name = "`ID_SOLICITUD`", nullable = false)
-	private String idSolicitud;
 
 	public int getIdOferta() {
 		return idOferta;
@@ -103,36 +94,28 @@ public class Oferta implements Serializable {
 		this.presentacionProducto = presentacionProducto;
 	}
 
-	public String getMontoCantidad() {
+	public double getMontoCantidad() {
 		return montoCantidad;
 	}
 
-	public void setMontoCantidad(String montoCantidad) {
+	public void setMontoCantidad(double montoCantidad) {
 		this.montoCantidad = montoCantidad;
 	}
 
-	public int getMontoMoneda() {
+	public String getMontoMoneda() {
 		return montoMoneda;
 	}
 
-	public void setMontoMoneda(int montoMoneda) {
+	public void setMontoMoneda(String montoMoneda) {
 		this.montoMoneda = montoMoneda;
 	}
 
-	public String getEstadoOFerta() {
-		return estadoOFerta;
+	public int getEstado() {
+		return estado;
 	}
 
-	public void setEstadoOFerta(String estadoOFerta) {
-		this.estadoOFerta = estadoOFerta;
-	}
-
-	public String getCodigoVariedad() {
-		return codigoVariedad;
-	}
-
-	public void setCodigoVariedad(String codigoVariedad) {
-		this.codigoVariedad = codigoVariedad;
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 
 	public Producto getProducto() {
@@ -141,14 +124,6 @@ public class Oferta implements Serializable {
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
-	}
-
-	public String getImagenOferta() {
-		return imagenOferta;
-	}
-
-	public void setImagenOferta(String imagenOferta) {
-		this.imagenOferta = imagenOferta;
 	}
 
 	public String getCodigoUbigeo() {
@@ -191,12 +166,6 @@ public class Oferta implements Serializable {
 		this.usuarioModificacion = usuarioModificacion;
 	}
 
-	public String getIdSolicitud() {
-		return idSolicitud;
-	}
 
-	public void setIdSolicitud(String idSolicitud) {
-		this.idSolicitud = idSolicitud;
-	}
 
 }
