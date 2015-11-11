@@ -18,7 +18,7 @@ public class ProductoDAOImpl extends AbstractDao implements ProductoDAO {
 				return (List<Producto>) criteria.list();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				System.out.println("errorrr "+e.getMessage());
+				System.out.println("error "+e.getMessage());
 				e.printStackTrace();
 			}
 	    	return null;

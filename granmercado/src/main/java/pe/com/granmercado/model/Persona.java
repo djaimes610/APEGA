@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "`APE_MA_PRODUCTO`", schema = "`APEGA`")
+@Table(name = "`APE_MA_PERSONA`", schema = "`APEGA`")
 public class Persona implements Serializable {
 
 	/**
