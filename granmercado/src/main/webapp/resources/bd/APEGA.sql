@@ -11,26 +11,130 @@ Target Server Type    : PGSQL
 Target Server Version : 90405
 File Encoding         : 65001
 
-Date: 2015-11-09 01:41:07
+Date: 2015-11-11 03:28:59
 */
 
 
 -- ----------------------------
--- Table structure for APE_AS_MES_ESTAC
+-- Sequence structure for APE_SEQ_CATEGORIA
 -- ----------------------------
-DROP TABLE IF EXISTS "APEGA"."APE_AS_MES_ESTAC";
-CREATE TABLE "APEGA"."APE_AS_MES_ESTAC" (
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_CATEGORIA";
+CREATE SEQUENCE "APEGA"."APE_SEQ_CATEGORIA"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 999999999
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for APE_SEQ_DIRECCION
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_DIRECCION";
+CREATE SEQUENCE "APEGA"."APE_SEQ_DIRECCION"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 9999999
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for APE_SEQ_OFERTA
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_OFERTA";
+CREATE SEQUENCE "APEGA"."APE_SEQ_OFERTA"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 99999999
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for APE_SEQ_PERSONA
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_PERSONA";
+CREATE SEQUENCE "APEGA"."APE_SEQ_PERSONA"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 999999999
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for APE_SEQ_PRODUCTO
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_PRODUCTO";
+CREATE SEQUENCE "APEGA"."APE_SEQ_PRODUCTO"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 99999999999
+ START 1
+ CACHE 1
+ CYCLE;
+
+-- ----------------------------
+-- Sequence structure for APE_SEQ_PRODUCTOR
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_PRODUCTOR";
+CREATE SEQUENCE "APEGA"."APE_SEQ_PRODUCTOR"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 999999999
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Sequence structure for APE_SEQ_VARIEDAD
+-- ----------------------------
+DROP SEQUENCE IF EXISTS "APEGA"."APE_SEQ_VARIEDAD";
+CREATE SEQUENCE "APEGA"."APE_SEQ_VARIEDAD"
+ INCREMENT 1
+ MINVALUE 1
+ MAXVALUE 99999999
+ START 1
+ CACHE 1;
+
+-- ----------------------------
+-- Table structure for APE_AS_CAT_ESTAC
+-- ----------------------------
+DROP TABLE IF EXISTS "APEGA"."APE_AS_CAT_ESTAC";
+CREATE TABLE "APEGA"."APE_AS_CAT_ESTAC" (
 "id_estacionalidad" int2 NOT NULL,
-"id_mes" int2 NOT NULL,
-"estado" int2
+"id_categoria" int2 NOT NULL
 )
 WITH (OIDS=FALSE)
 
 ;
 
 -- ----------------------------
--- Records of APE_AS_MES_ESTAC
+-- Records of APE_AS_CAT_ESTAC
 -- ----------------------------
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('1', '1');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('1', '5');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('1', '7');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('2', '5');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('2', '7');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('3', '1');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('3', '5');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('3', '7');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('4', '1');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('4', '8');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('5', '2');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('6', '2');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('6', '4');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('6', '8');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('7', '2');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('7', '3');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('7', '4');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('8', '3');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('8', '4');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('8', '8');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('9', '3');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('9', '6');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('10', '6');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('10', '9');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('11', '6');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('11', '9');
+INSERT INTO "APEGA"."APE_AS_CAT_ESTAC" VALUES ('12', '9');
 
 -- ----------------------------
 -- Table structure for APE_AS_OPCION_ROL
@@ -59,7 +163,10 @@ CREATE TABLE "APEGA"."APE_MA_CATEGORIA" (
 "FECHA_CREACION" timestamp(6),
 "USUARIO_MODIFICACION" varchar(100) COLLATE "default",
 "FECHA_MODIFICACION" timestamp(4),
-"ESTADO" char(1) COLLATE "default"
+"ESTADO" char(1) COLLATE "default",
+"DESCRIPCION_CATEGORIA" varchar(500) COLLATE "default",
+"IMAGEN_CATEGORIA" varchar(255) COLLATE "default",
+"PDF_CATEGORIA" varchar(255) COLLATE "default"
 )
 WITH (OIDS=FALSE)
 
@@ -68,11 +175,15 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Records of APE_MA_CATEGORIA
 -- ----------------------------
-INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('1', 'Fruta', 'carga inicial', '2015-09-08 00:00:00', null, null, '1');
-INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('2', 'Granos', 'carga inicial', '2015-09-08 00:00:00', null, null, '1');
-INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('3', 'Hortalizas', 'carga inicial', '2015-09-08 00:00:00', null, null, '1');
-INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('4', 'Tubérculos y raíces', 'carga inicial', '2015-09-08 00:00:00', null, null, '1');
-INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('5', 'Procesados', 'carga inicial', '2015-09-08 00:00:00', null, null, '1');
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('1', 'Ají', 'admin', '2015-09-08 00:00:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('2', 'Chirimoya', 'admin', '2015-09-08 00:00:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('3', 'Lúcuma', 'admin', '2015-09-08 00:00:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('4', 'Olluco', 'admin', '2015-09-08 00:00:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('5', 'Papa nativa', 'admin', '2015-09-08 00:00:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('6', 'Piña', 'admin', '2015-11-11 01:13:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('7', 'Quinua', 'admin', '2015-11-11 01:13:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('8', 'Tomate', 'admin', '2015-11-11 01:13:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
+INSERT INTO "APEGA"."APE_MA_CATEGORIA" VALUES ('9', 'Pallares', 'admin', '2015-11-11 01:13:00', null, null, '1', 'Este condimento saborizante, tan difundido en toda América y tan bien recibido en toda Europa desde principios de la transculturización. El ají, cuando se consume en concentraciones adecuadas produce una sensación urente muy estimulante del apetito,', 'producto_01.jpg', null);
 
 -- ----------------------------
 -- Table structure for APE_MA_DEPARTAMENTO
@@ -1990,7 +2101,7 @@ INSERT INTO "APEGA"."APE_MA_DISTRITO" VALUES ('1831', 'PURUS', '193');
 DROP TABLE IF EXISTS "APEGA"."APE_MA_ESTACIONALIDAD";
 CREATE TABLE "APEGA"."APE_MA_ESTACIONALIDAD" (
 "id_estacionalidad" int2 NOT NULL,
-"id_producto" int2
+"mes_estacionalidad" varchar(45) COLLATE "default"
 )
 WITH (OIDS=FALSE)
 
@@ -1999,22 +2110,18 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Records of APE_MA_ESTACIONALIDAD
 -- ----------------------------
-
--- ----------------------------
--- Table structure for APE_MA_MES
--- ----------------------------
-DROP TABLE IF EXISTS "APEGA"."APE_MA_MES";
-CREATE TABLE "APEGA"."APE_MA_MES" (
-"id_mes" int2 NOT NULL,
-"descripcion_mes" varchar(100) COLLATE "default"
-)
-WITH (OIDS=FALSE)
-
-;
-
--- ----------------------------
--- Records of APE_MA_MES
--- ----------------------------
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('1', 'Enero');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('2', 'Febrero');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('3', 'Marzo');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('4', 'Abril');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('5', 'Mayo');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('6', 'Junio');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('7', 'Julio');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('8', 'Agosto');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('9', 'Septiembre');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('10', 'Octubre');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('11', 'Noviembre');
+INSERT INTO "APEGA"."APE_MA_ESTACIONALIDAD" VALUES ('12', 'Diciembre');
 
 -- ----------------------------
 -- Table structure for APE_MA_OPCION
@@ -2045,14 +2152,14 @@ DROP TABLE IF EXISTS "APEGA"."APE_MA_PERSONA";
 CREATE TABLE "APEGA"."APE_MA_PERSONA" (
 "id_persona" int2 NOT NULL,
 "nombres" varchar(255) COLLATE "default",
-"apellido_materno" varchar(255) COLLATE "default",
-"apellido_paterno" varchar(255) COLLATE "default",
-"num_documento" varchar(45) COLLATE "default",
-"tipo_documento" varchar(45) COLLATE "default",
 "fecha_creacion" date,
 "usuario_creacion" varchar(45) COLLATE "default",
 "fecha_modificacion" date,
-"usuario_modificacion" varchar(45) COLLATE "default"
+"usuario_modificacion" varchar(45) COLLATE "default",
+"contacto_persona" varchar(45) COLLATE "default",
+"telefono_persona" varchar(45) COLLATE "default",
+"correo_persona" varchar(100) COLLATE "default",
+"estado" int2
 )
 WITH (OIDS=FALSE)
 
@@ -2061,9 +2168,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Records of APE_MA_PERSONA
 -- ----------------------------
-INSERT INTO "APEGA"."APE_MA_PERSONA" VALUES ('1', 'Eduardo', 'Huayta', 'Cuba', '45498331', 'Dni', '2015-11-08', 'admin', null, null);
-INSERT INTO "APEGA"."APE_MA_PERSONA" VALUES ('2', 'Pedro', 'Perez', 'Alvela', '45345331', 'Dni', '2015-11-08', 'admin', null, null);
-INSERT INTO "APEGA"."APE_MA_PERSONA" VALUES ('3', 'Ricardo', 'Flores', 'Ascurra', '45332222', 'Dni', '2015-11-08', 'admin', null, null);
+INSERT INTO "APEGA"."APE_MA_PERSONA" VALUES ('1', 'Eduardo', '2015-11-08', 'admin', null, null, null, null, null, null);
+INSERT INTO "APEGA"."APE_MA_PERSONA" VALUES ('2', 'Pedro', '2015-11-08', 'admin', null, null, null, null, null, null);
+INSERT INTO "APEGA"."APE_MA_PERSONA" VALUES ('3', 'Ricardo', '2015-11-08', 'admin', null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for APE_MA_PRODUCTO
@@ -2081,7 +2188,8 @@ CREATE TABLE "APEGA"."APE_MA_PRODUCTO" (
 "MEMO_PRODUCTO" char(3) COLLATE "default",
 "MONTO_MONEDA" varchar(10) COLLATE "default",
 "OBSERVACIONES" varchar(2000) COLLATE "default",
-"ESTADO" char(1) COLLATE "default"
+"ESTADO" char(1) COLLATE "default",
+"id_productor" int2
 )
 WITH (OIDS=FALSE)
 
@@ -2090,20 +2198,20 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Records of APE_MA_PRODUCTO
 -- ----------------------------
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('1', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Palta', 'Primera', 'producto_aji_01.jpg', '1', '6', 'Kg', 'PAL', 'PEN', 'Con Certificación Orgánica', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('2', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Piña', 'Primera', 'producto_pina_01.jpg', '1', '3', 'Kg', 'PIN', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('3', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Chirimoya', 'Extra', 'producto_chirimoya_01.jpg', '1', '6', 'Kg', 'CHI', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('4', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Aguaymanto', 'Extra', 'producto_aji_01.jpg', '1', '5', 'Kg', 'AGU', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('5', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Quinua', 'Quinua lavada', 'producto_quinua_01.jpg', '2', '15', 'Kg', 'QUI', 'PEN', 'Con Certificación Orgánica', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('6', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Pallar', 'Primera', 'producto_01.jpg', '2', '4', 'Kg', 'PLL', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('7', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Maíz', 'Seleccionada', 'producto_01.jpg', '2', '6', 'Kg', 'MAI', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('8', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Tomate', 'Primera', 'producto_01.jpg', '3', '5', 'Kg', 'TOM', 'PEN', 'Con certificación SGP', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('9', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Papas nativas', 'Primera', 'producto_01.jpg', '4', '3', 'Kg', 'PAP', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('10', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Olluco', 'Primera', 'producto_01.jpg', '4', '3', 'Kg', 'OLL', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('11', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Quesos', 'Moldes de 1.0 kilogramo', 'producto_01.jpg', '5', '20', 'Kg', 'QUE', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('12', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Aceituna', 'Bolsas de 1/2 y 1.0 Kg', 'producto_01.jpg', '5', '12', 'Kg', 'ACT', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('13', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Miel de abeja', 'Bolsas de 1/2 Kg', 'producto_01.jpg', '5', '15', 'Kg', 'MIE', 'PEN', 'Ninguno', '1');
-INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('14', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Quinua instantánea', 'Bolsas de 180 gr.', 'producto_quinua_02.jpg', '5', '5', 'gr', 'QII', 'PEN', 'Ninguno', '1');
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('1', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Palta', 'Primera', 'producto_aji_01.jpg', '1', '6', 'Kg', 'PAL', 'PEN', 'Con Certificación Orgánica', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('2', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Piña', 'Primera', 'producto_pina_01.jpg', '1', '3', 'Kg', 'PIN', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('3', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Chirimoya', 'Extra', 'producto_chirimoya_01.jpg', '1', '6', 'Kg', 'CHI', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('4', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Aguaymanto', 'Extra', 'producto_aji_01.jpg', '1', '5', 'Kg', 'AGU', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('5', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Quinua', 'Quinua lavada', 'producto_quinua_01.jpg', '2', '15', 'Kg', 'QUI', 'PEN', 'Con Certificación Orgánica', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('6', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Pallar', 'Primera', 'producto_01.jpg', '2', '4', 'Kg', 'PLL', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('7', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Maíz', 'Seleccionada', 'producto_01.jpg', '2', '6', 'Kg', 'MAI', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('8', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Tomate', 'Primera', 'producto_01.jpg', '3', '5', 'Kg', 'TOM', 'PEN', 'Con certificación SGP', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('9', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Papas nativas', 'Primera', 'producto_01.jpg', '4', '3', 'Kg', 'PAP', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('10', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Olluco', 'Primera', 'producto_01.jpg', '4', '3', 'Kg', 'OLL', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('11', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Quesos', 'Moldes de 1.0 kilogramo', 'producto_01.jpg', '5', '20', 'Kg', 'QUE', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('12', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Aceituna', 'Bolsas de 1/2 y 1.0 Kg', 'producto_01.jpg', '5', '12', 'Kg', 'ACT', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('13', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Miel de abeja', 'Bolsas de 1/2 Kg', 'producto_01.jpg', '5', '15', 'Kg', 'MIE', 'PEN', 'Ninguno', '1', null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTO" VALUES ('14', 'Es un Sistema de Información que fue desarrollado pensando en todos aquellos productores del campo y comercializadores de alimentos que deseen establecer contactos para la comercialización', 'Quinua instantánea', 'Bolsas de 180 gr.', 'producto_quinua_02.jpg', '5', '5', 'gr', 'QII', 'PEN', 'Ninguno', '1', null);
 
 -- ----------------------------
 -- Table structure for APE_MA_PRODUCTOR
@@ -2117,7 +2225,10 @@ CREATE TABLE "APEGA"."APE_MA_PRODUCTOR" (
 "fecha_creacion" date,
 "usuario_creacion" varchar(50) COLLATE "default",
 "fecha_modificacion" date,
-"usuario_modificacion" varchar(50) COLLATE "default"
+"usuario_modificacion" varchar(50) COLLATE "default",
+"descripcion_procedencia" varchar(255) COLLATE "default",
+"imagen_productor" varchar(255) COLLATE "default",
+"estado" int2
 )
 WITH (OIDS=FALSE)
 
@@ -2126,7 +2237,7 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Records of APE_MA_PRODUCTOR
 -- ----------------------------
-INSERT INTO "APEGA"."APE_MA_PRODUCTOR" VALUES ('1', '1', 'Data de prueba', 'Data de prueba', '2015-11-09', 'admin', null, null);
+INSERT INTO "APEGA"."APE_MA_PRODUCTOR" VALUES ('1', '1', 'Data de prueba', 'Data de prueba', '2015-11-09', 'admin', null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for APE_MA_PROVINCIA
@@ -2426,17 +2537,15 @@ CREATE TABLE "APEGA"."APE_TR_OFERTA" (
 "presentacion_producto" varchar(500) COLLATE "default",
 "monto_cantidad" float4,
 "monto_moneda" varchar(20) COLLATE "default",
-"estado_oferta" int2,
-"cod_variedad" int2 NOT NULL,
-"cod_producto" int2 NOT NULL,
-"imagen_oferta" varchar(255) COLLATE "default",
-"cod_ubigeo" varchar(20) COLLATE "default" NOT NULL,
+"estado" int2,
+"cod_producto" int2,
+"cod_ubigeo" varchar(20) COLLATE "default",
 "fecha_creacion" date,
 "usuario_creacion" varchar(50) COLLATE "default",
 "fecha_modificacion" date,
 "usuario_modificacion" varchar(50) COLLATE "default",
-"id_solicitud" int8,
-"id_productor" int2
+"fecha_inicio_vigencia" date,
+"fecha_fin_vigencia" date
 )
 WITH (OIDS=FALSE)
 
@@ -2446,7 +2555,7 @@ COMMENT ON COLUMN "APEGA"."APE_TR_OFERTA"."medida_cantidad" IS 'tipo de medida d
 COMMENT ON COLUMN "APEGA"."APE_TR_OFERTA"."presentacion_producto" IS 'presentacion de la oferta';
 COMMENT ON COLUMN "APEGA"."APE_TR_OFERTA"."monto_cantidad" IS 'precio de la oferta';
 COMMENT ON COLUMN "APEGA"."APE_TR_OFERTA"."monto_moneda" IS 'moneda de la oferta';
-COMMENT ON COLUMN "APEGA"."APE_TR_OFERTA"."estado_oferta" IS '1 - Publicado, 0 - Oculto';
+COMMENT ON COLUMN "APEGA"."APE_TR_OFERTA"."estado" IS '1 - Publicado, 0 - Oculto';
 
 -- ----------------------------
 -- Records of APE_TR_OFERTA
@@ -2461,11 +2570,12 @@ CREATE TABLE "APEGA"."APE_TR_SOLICITUD" (
 "nombre_interesado" varchar(255) COLLATE "default",
 "numero_telefono" varchar(45) COLLATE "default",
 "correo_interesado" varchar(255) COLLATE "default",
-"descripcion_solicitud" varchar(255) COLLATE "default",
+"mensaje_solicitud" varchar(255) COLLATE "default",
 "usuario_creacion" varchar(45) COLLATE "default",
 "fecha_creacion" date,
 "usuario_modificacion" varchar(45) COLLATE "default",
-"fecha_modificacion" date
+"fecha_modificacion" date,
+"id_producto" int2
 )
 WITH (OIDS=FALSE)
 
@@ -2492,19 +2602,9 @@ CREATE OR REPLACE VIEW "APEGA"."VW_UBIGEO" AS
 -- ----------------------------
 
 -- ----------------------------
--- Indexes structure for table APE_AS_MES_ESTAC
+-- Primary Key structure for table APE_AS_CAT_ESTAC
 -- ----------------------------
-CREATE UNIQUE INDEX "IDX_MES_ESTAC_1" ON "APEGA"."APE_AS_MES_ESTAC" USING btree ("id_estacionalidad", "id_mes");
-
--- ----------------------------
--- Uniques structure for table APE_AS_MES_ESTAC
--- ----------------------------
-ALTER TABLE "APEGA"."APE_AS_MES_ESTAC" ADD UNIQUE ("id_estacionalidad", "id_mes");
-
--- ----------------------------
--- Primary Key structure for table APE_AS_MES_ESTAC
--- ----------------------------
-ALTER TABLE "APEGA"."APE_AS_MES_ESTAC" ADD PRIMARY KEY ("id_mes", "id_estacionalidad");
+ALTER TABLE "APEGA"."APE_AS_CAT_ESTAC" ADD PRIMARY KEY ("id_estacionalidad", "id_categoria");
 
 -- ----------------------------
 -- Primary Key structure for table APE_AS_OPCION_ROL
@@ -2515,6 +2615,11 @@ ALTER TABLE "APEGA"."APE_AS_OPCION_ROL" ADD PRIMARY KEY ("id_rol", "id_opcion");
 -- Indexes structure for table APE_MA_CATEGORIA
 -- ----------------------------
 CREATE UNIQUE INDEX "APE_MA_CATEGORIA_COD_CATEGORIA_key" ON "APEGA"."APE_MA_CATEGORIA" USING btree ("COD_CATEGORIA");
+
+-- ----------------------------
+-- Primary Key structure for table APE_MA_CATEGORIA
+-- ----------------------------
+ALTER TABLE "APEGA"."APE_MA_CATEGORIA" ADD PRIMARY KEY ("COD_CATEGORIA");
 
 -- ----------------------------
 -- Indexes structure for table APE_MA_DEPARTAMENTO
@@ -2540,11 +2645,6 @@ ALTER TABLE "APEGA"."APE_MA_DISTRITO" ADD PRIMARY KEY ("COD_DISTRITO");
 -- Primary Key structure for table APE_MA_ESTACIONALIDAD
 -- ----------------------------
 ALTER TABLE "APEGA"."APE_MA_ESTACIONALIDAD" ADD PRIMARY KEY ("id_estacionalidad");
-
--- ----------------------------
--- Primary Key structure for table APE_MA_MES
--- ----------------------------
-ALTER TABLE "APEGA"."APE_MA_MES" ADD PRIMARY KEY ("id_mes");
 
 -- ----------------------------
 -- Primary Key structure for table APE_MA_OPCION
@@ -2608,10 +2708,10 @@ ALTER TABLE "APEGA"."APE_TR_OFERTA" ADD PRIMARY KEY ("id_oferta");
 ALTER TABLE "APEGA"."APE_TR_SOLICITUD" ADD PRIMARY KEY ("id_solicitud");
 
 -- ----------------------------
--- Foreign Key structure for table "APEGA"."APE_AS_MES_ESTAC"
+-- Foreign Key structure for table "APEGA"."APE_AS_CAT_ESTAC"
 -- ----------------------------
-ALTER TABLE "APEGA"."APE_AS_MES_ESTAC" ADD FOREIGN KEY ("id_mes") REFERENCES "APEGA"."APE_MA_MES" ("id_mes") ON DELETE CASCADE ON UPDATE NO ACTION;
-ALTER TABLE "APEGA"."APE_AS_MES_ESTAC" ADD FOREIGN KEY ("id_estacionalidad") REFERENCES "APEGA"."APE_MA_ESTACIONALIDAD" ("id_estacionalidad") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "APEGA"."APE_AS_CAT_ESTAC" ADD FOREIGN KEY ("id_categoria") REFERENCES "APEGA"."APE_MA_CATEGORIA" ("COD_CATEGORIA") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "APEGA"."APE_AS_CAT_ESTAC" ADD FOREIGN KEY ("id_estacionalidad") REFERENCES "APEGA"."APE_MA_ESTACIONALIDAD" ("id_estacionalidad") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Key structure for table "APEGA"."APE_AS_OPCION_ROL"
@@ -2630,14 +2730,10 @@ ALTER TABLE "APEGA"."APE_MA_DIRECCION" ADD FOREIGN KEY ("id_persona") REFERENCES
 ALTER TABLE "APEGA"."APE_MA_DISTRITO" ADD FOREIGN KEY ("COD_PROVINCIA") REFERENCES "APEGA"."APE_MA_PROVINCIA" ("COD_PROVINCIA") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
--- Foreign Key structure for table "APEGA"."APE_MA_ESTACIONALIDAD"
--- ----------------------------
-ALTER TABLE "APEGA"."APE_MA_ESTACIONALIDAD" ADD FOREIGN KEY ("id_producto") REFERENCES "APEGA"."APE_MA_PRODUCTO" ("COD_PRODUCTO") ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- ----------------------------
 -- Foreign Key structure for table "APEGA"."APE_MA_PRODUCTO"
 -- ----------------------------
-ALTER TABLE "APEGA"."APE_MA_PRODUCTO" ADD FOREIGN KEY ("COD_CATEGORIA") REFERENCES "APEGA"."APE_MA_CATEGORIA" ("COD_CATEGORIA") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "APEGA"."APE_MA_PRODUCTO" ADD FOREIGN KEY ("COD_CATEGORIA") REFERENCES "APEGA"."APE_MA_CATEGORIA" ("COD_CATEGORIA") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "APEGA"."APE_MA_PRODUCTO" ADD FOREIGN KEY ("id_productor") REFERENCES "APEGA"."APE_MA_PRODUCTOR" ("id_productor") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- ----------------------------
 -- Foreign Key structure for table "APEGA"."APE_MA_PRODUCTOR"
@@ -2664,6 +2760,8 @@ ALTER TABLE "APEGA"."APE_MA_VARIEDAD" ADD FOREIGN KEY ("COD_PRODUCTO") REFERENCE
 -- Foreign Key structure for table "APEGA"."APE_TR_OFERTA"
 -- ----------------------------
 ALTER TABLE "APEGA"."APE_TR_OFERTA" ADD FOREIGN KEY ("cod_producto") REFERENCES "APEGA"."APE_MA_PRODUCTO" ("COD_PRODUCTO") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "APEGA"."APE_TR_OFERTA" ADD FOREIGN KEY ("cod_variedad") REFERENCES "APEGA"."APE_MA_VARIEDAD" ("COD_VARIEDAD") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "APEGA"."APE_TR_OFERTA" ADD FOREIGN KEY ("id_solicitud") REFERENCES "APEGA"."APE_TR_SOLICITUD" ("id_solicitud") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "APEGA"."APE_TR_OFERTA" ADD FOREIGN KEY ("id_productor") REFERENCES "APEGA"."APE_MA_PRODUCTOR" ("id_productor") ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- ----------------------------
+-- Foreign Key structure for table "APEGA"."APE_TR_SOLICITUD"
+-- ----------------------------
+ALTER TABLE "APEGA"."APE_TR_SOLICITUD" ADD FOREIGN KEY ("id_producto") REFERENCES "APEGA"."APE_MA_PRODUCTO" ("COD_PRODUCTO") ON DELETE NO ACTION ON UPDATE NO ACTION;
